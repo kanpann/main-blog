@@ -33,26 +33,17 @@ body.light {
       a {
         color: $light-category-text-color;
       }
-      &[aria-selected='true'] {
+      &[aria-selected="true"] {
         border: 2px solid $light-category-highlight-border-color;
         font-weight: bolder;
       }
-      &[aria-selected='true'] a {
+      &[aria-selected="true"] a {
         color: $light-category-highlight-text-color;
       }
     }
   }
 
   .thumbnail {
-    h3 {
-      color: $dark-gray;
-    }
-    p {
-      color: $middle-gray;
-    }
-    &:hover {
-      text-shadow: $light-hover-text-shadow;
-    }
   }
 
   .footer {

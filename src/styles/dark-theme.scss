@@ -51,14 +51,14 @@ body.dark {
   }
 
   .thumbnail {
-    h3 {
-      color: $dark-light-font-color;
+    .MuiButtonBase-root {
+      background-color: #3e3c3c;
     }
-    p {
-      color: $dark-middle-font-color;
+    .MuiTypography-root {
+      color: #c7c7c7;
     }
-    &:hover {
-      text-shadow: $dark-hover-text-shadow;
+    .MuiTypography-body2 {
+      color: #b1b1b1;
     }
   }
 
