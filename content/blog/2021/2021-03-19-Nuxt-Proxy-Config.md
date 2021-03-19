@@ -33,8 +33,6 @@ proxy: {
 }
 ```
 
-만약 "/api/" 에서 하위 URL을 제외할 필요가
-
 # 참고
 
 [https://axios.nuxtjs.org/options/](https://axios.nuxtjs.org/options/)
