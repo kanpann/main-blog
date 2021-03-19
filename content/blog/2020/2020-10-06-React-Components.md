@@ -1,8 +1,8 @@
 ---
-date: '2020-10-06'
+date: "2020-10-06"
 draft: false
 title: 리액트 초보의 컴포넌트에 대한 고민(feat.디자인 패턴)
-category: JavaScript
+category: React
 tags: [React]
 image: https://user-images.githubusercontent.com/45007556/95151526-d6491e80-07c5-11eb-9388-5fd48280d712.png
 subtitle: 코드 작성보다 컴포넌트를 만드는 게 더 어렵다. 컴포넌트를 똑똑하게 만드는 방법에 대해서 고민해본다
@@ -32,27 +32,29 @@ _/components/List.js_
 
 ```javascript
 const List = () => {
-  const { loading, error, data: todoList } = useSelector(state => state.todos)
-  const dispatch = useDispatch()
+  const { loading, error, data: todoList } = useSelector(
+    (state) => state.todos
+  );
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getTodos())
-  }, [dispatch])
+    dispatch(getTodos());
+  }, [dispatch]);
 
   if (loading) {
-    return <div>목록을 불러오는 중...</div>
+    return <div>목록을 불러오는 중...</div>;
   }
   if (error) {
-    return <div>오류입니다... 잠시 후 다시시도해주세요.</div>
+    return <div>오류입니다... 잠시 후 다시시도해주세요.</div>;
   }
   return (
     <div>
-      {todoList.map(todo => (
+      {todoList.map((todo) => (
         <Item key={todo.id} id={todo.id} text={todo.text} check={todo.check} />
       ))}
     </div>
-  )
-}
+  );
+};
 ```
 
 위 코드는 부끄럽지만 나름대로 예전에 코딩해놓은 투두리스트 목록을 뿌려주는 컴포넌트 전체 코드이다. 이 코드를 나름 이해한 방식으로 Container와Presenter로 분리해보려고 한다.
@@ -61,16 +63,18 @@ _/container/ListContainer.js_
 
 ```javascript
 const ListContainer = () => {
-  const { loading, error, data: todoList } = useSelector(state => state.todos)
-  const dispatch = useDispatch()
+  const { loading, error, data: todoList } = useSelector(
+    (state) => state.todos
+  );
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getTodos())
-  }, [dispatch])
+    dispatch(getTodos());
+  }, [dispatch]);
 
-  return <List list={todoList} loading={loading} error={error} />
-}
-export default ListContainer
+  return <List list={todoList} loading={loading} error={error} />;
+};
+export default ListContainer;
 ```
 
 _/components/List.js_
@@ -78,26 +82,26 @@ _/components/List.js_
 ```javascript
 const List = ({ list, loading, error }) => {
   if (loading) {
-    return <div>목록을 불러오는 중...</div>
+    return <div>목록을 불러오는 중...</div>;
   }
   if (error) {
-    return <div>오류입니다... 잠시 후 다시시도해주세요.</div>
+    return <div>오류입니다... 잠시 후 다시시도해주세요.</div>;
   }
   return (
     <>
-      {list.map(todo => (
+      {list.map((todo) => (
         <Item key={todo.id} id={todo.id} text={todo.text} check={todo.check} />
       ))}
     </>
-  )
-}
+  );
+};
 List.defaultProps = {
   list: [],
   loading: false,
   error: true,
-}
+};
 
-export default List
+export default List;
 ```
 
 자 이렇게 리덕스를 통해 state를 받아오거나, 디스패치하는 로직은 Container컴포넌트로 분리하고, state값을 Props를 통해 Presenter컴포넌트로 전달하도록 컴포넌트를 분리해보았다.
