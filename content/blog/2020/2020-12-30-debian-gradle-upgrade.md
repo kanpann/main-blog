@@ -1,9 +1,9 @@
 ---
-date: '2020-12-30'
+date: "2020-12-30"
 draft: false
 title: Debian Linux Gradle 최신 버전 설치하기
-category: Other
-tags: ['Linux', 'Gradle']
+category: Linux
+tags: ["Linux", "Gradle"]
 image: https://user-images.githubusercontent.com/45007556/103326060-071db480-4a92-11eb-8f14-b63d669bfb96.png
 subtitle: 데비안 리눅스에서 Gradle을 최신 버전을 설치해보자
 ---

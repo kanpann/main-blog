@@ -1,10 +1,10 @@
 ---
-date: '2020-12-24'
+date: "2020-12-24"
 draft: false
 title: 코틀린에서 빌더 패턴이 필요없는 이유
-category: Other
+category: Kotlin
 image: https://user-images.githubusercontent.com/45007556/103047952-61210480-45d0-11eb-81e6-c7c7ffc8540a.png
-tags: ['Java', 'Kotlin']
+tags: ["Java", "Kotlin"]
 subtitle: Kotlin에서는 Builder Pattern을 사용하지 않더라도 더 쉬운 방법이 있다
 ---
 
