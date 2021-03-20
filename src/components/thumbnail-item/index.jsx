@@ -24,6 +24,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const ThumbnailItem = ({ node }) => {
+  const oriTtitle = node.frontmatter.title;
+  const printTitleLength = 25;
+  const prtTitle = oriTtitle.length <= printTitleLength ? oriTtitle : oriTtitle.substr(0, printTitleLength) + "...";
+
   const classes = useStyles();
   return (
     <Grid xs={12} md={6} lg={4}>
@@ -40,7 +44,7 @@ export const ThumbnailItem = ({ node }) => {
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="h2">
-                {node.frontmatter.title || node.fields.slug}
+                {prtTitle || node.fields.slug}
               </Typography>
               <Typography
                 variant="body2"
