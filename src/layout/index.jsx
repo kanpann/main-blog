@@ -1,9 +1,6 @@
 import React from "react";
 
-import { Top } from "../components/top";
-import { Header } from "../components/header";
-import { ThemeSwitch } from "../components/theme-switch";
-import { Footer } from "../components/footer";
+import { Top, Header, ThemeSwitch, Footer } from "../components";
 import Grid from "@material-ui/core/Grid";
 
 import "./index.scss";

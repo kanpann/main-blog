@@ -1,18 +1,17 @@
-import { graphql } from "gatsby";
-import _ from "lodash";
 import React, { useMemo } from "react";
-import { Bio } from "../components/bio";
-import { Category } from "../components/category";
-import { Contents } from "../components/contents";
-import { Head } from "../components/head";
-import { HOME_TITLE } from "../constants";
-import { useCategory } from "../hooks/useCategory";
-import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
-import { useRenderedCount } from "../hooks/useRenderedCount";
-import { useScrollEvent } from "../hooks/useScrollEvent";
-import { Layout } from "../layout";
-import * as Dom from "../utils/dom";
 import * as EventManager from "../utils/event-manager";
+import { graphql } from "gatsby";
+import * as Dom from "../utils/dom";
+import _ from "lodash";
+import { Layout } from "../layout";
+import { Bio, Category, Contents, Head } from "../components";
+import {
+  useCategory,
+  useIntersectionObserver,
+  useRenderedCount,
+  useScrollEvent,
+} from "../hooks";
+import { HOME_TITLE } from "../constants";
 
 const BASE_LINE = 80;
 
