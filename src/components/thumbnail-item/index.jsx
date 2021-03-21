@@ -26,7 +26,10 @@ const useStyles = makeStyles((theme) => ({
 export const ThumbnailItem = ({ node }) => {
   const oriTtitle = node.frontmatter.title;
   const printTitleLength = 25;
-  const prtTitle = oriTtitle.length <= printTitleLength ? oriTtitle : oriTtitle.substr(0, printTitleLength) + "...";
+  const prtTitle =
+    oriTtitle.length <= printTitleLength
+      ? oriTtitle
+      : oriTtitle.substr(0, printTitleLength) + "...";
 
   const classes = useStyles();
   return (
@@ -35,26 +38,14 @@ export const ThumbnailItem = ({ node }) => {
         className={`thumbnail ${TARGET_CLASS}`}
         to={node.fields.slug.substr(17)}
       >
-        <Card className={classes.root}>
-          <CardActionArea>
-            <CardMedia
-              className={classes.media}
-              image={node.frontmatter.image}
-              title={node.frontmatter.title || node.fields.slug}
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
-                {prtTitle || node.fields.slug}
-              </Typography>
-              <Typography
-                variant="body2"
-                color="textSecondary"
-                component="div"
-                dangerouslySetInnerHTML={{ __html: node.excerpt }}
-              ></Typography>
-            </CardContent>
-          </CardActionArea>
-        </Card>
+        <div className="thum-frame">
+          <div
+            className="thum-img"
+            style={{ backgroundImage: `url(${node.frontmatter.image})` }}
+          />
+          <h2>{prtTitle || node.fields.slug}</h2>
+          <p dangerouslySetInnerHTML={{ __html: node.excerpt }}></p>
+        </div>
       </Link>
     </Grid>
   );

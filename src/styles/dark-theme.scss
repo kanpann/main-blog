@@ -51,14 +51,14 @@ body.dark {
   }
 
   .thumbnail {
-    .MuiPaper-root {
-      background-color: #3e3c3c;
+    .thum-frame {
+      border-bottom: 1px solid white;
     }
-    .MuiTypography-root {
-      color: #c7c7c7;
+    h2 {
+      color: #e4e4e4;
     }
-    .MuiTypography-body2 {
-      color: #b1b1b1;
+    p {
+      color: #b3b3b3;
     }
   }
 
