@@ -1,5 +1,5 @@
 ---
-date: '2020-10-28'
+date: "2020-10-28"
 draft: false
 title: JPA 영속성(Persistence) 정리
 category: Spring
@@ -96,7 +96,7 @@ em.persist(member);
 em.detach(member)
 //2. 영속성 컨텍스트 초기화
 em.clear()
-//3. 영속성 컨텍스트 종료
+//3. 영속성 컨텍스트 종료
 em.close()
 ```
 
