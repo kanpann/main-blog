@@ -1,4 +1,4 @@
-const metaConfig = require('./gatsby-meta-config')
+const metaConfig = require("./gatsby-meta-config");
 
 module.exports = {
   siteMetadata: metaConfig,
@@ -57,7 +57,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
-              inlineCodeMarker: '%',
+              inlineCodeMarker: "%",
             },
           },
           `gatsby-remark-copy-linked-files`,
@@ -93,13 +93,67 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.edges.map((edge) => {
+                const realPath = edge.node.fields.slug.substr(17);
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.excerpt,
+                  date: edge.node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + "/" + realPath,
+                  guid: site.siteMetadata.siteUrl + "/" + realPath,
+                  custom_elements: [{ "content:encoded": edge.node.html }],
+                });
+              });
+            },
+            query: `
+              {
+                allMarkdownRemark(
+                  sort: { order: DESC, fields: [frontmatter___date] },
+                ) {
+                  edges {
+                    node {
+                      excerpt
+                      html
+                      fields { slug }
+                      frontmatter {
+                        title
+                        date
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: "/feed.xml",
+            title: "Gunlog",
+            match: "^/blog/",
+          },
+        ],
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-feed`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-lodash`,
     `gatsby-plugin-sitemap`,
   ],
-}
+};

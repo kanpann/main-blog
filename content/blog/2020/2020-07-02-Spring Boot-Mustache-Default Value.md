@@ -1,5 +1,5 @@
-<!-- ---
-date: '2020-07-02'
+---
+date: "2020-07-02"
 draft: false
 title: 스프링 부트 - Mustache 기본 값 지정하기
 category: Spring
@@ -17,7 +17,9 @@ Mustache를 더 잘쓰고 싶어서 Mustache 관련 사이트를 뒤지던 중 �
 {{member}}
 ```
 
-> com.samskivert.mustache.MustacheException$Context: No method or field with name 'member' on line 9 at com.samskivert.mustache.Template.checkForMissing(Template.java:344) ~\[jmustache-1.15.jar:na\] at com.samskivert.mustache.Template.getValue(Template.java:247) ~\[jmustache-1.15.jar:na\] at com.samskivert.mustache.Template.getCompoundValue(Template.java:260) ~\[jmustache-1.15.jar:na\] at com.samskivert.mustache.Template.getValue(Template.java:244) ~\[jmustache-1.15.jar:na\] at com.samskivert.mustache.Template.getValueOrDefault(Template.java:292) ~\[jmustache-1.15.jar:na\] at com.samskivert.mustache.Mustache$VariableSegment.execute(Mustache.java:872) ~\[jmustache-1.15.jar:na\] at com.samskivert.mustache.Template.executeSegs(Template.java:170) ~\[jmustache-1.15.jar:na\] at com.samskivert.mustache.Template.execute(Template.java:137) ~\[jmustache-1.15.jar:na\]
+```
+com.samskivert.mustache.MustacheException$Context: No method or field with name 'member' on line 9 at com.samskivert.mustache.Template.checkForMissing(Template.java:344) ~\[jmustache-1.15.jar:na\] at com.samskivert.mustache.Template.getValue(Template.java:247) ~\[jmustache-1.15.jar:na\] at com.samskivert.mustache.Template.getCompoundValue(Template.java:260) ~\[jmustache-1.15.jar:na\] at com.samskivert.mustache.Template.getValue(Template.java:244) ~\[jmustache-1.15.jar:na\] at com.samskivert.mustache.Template.getValueOrDefault(Template.java:292) ~\[jmustache-1.15.jar:na\] at com.samskivert.mustache.Mustache$VariableSegment.execute(Mustache.java:872) ~\[jmustache-1.15.jar:na\] at com.samskivert.mustache.Template.executeSegs(Template.java:170) ~\[jmustache-1.15.jar:na\] at com.samskivert.mustache.Template.execute(Template.java:137) ~\[jmustache-1.15.jar:na\]
+```
 
 그래서 항상 Mustache를 사용할 때는 해당 상황에 대한 처리를 위해 아래처럼 없을 경우에 대비해주었다.
 
@@ -54,4 +56,4 @@ public class MustacheConfig {
 
 # 참고
 
-[www.baeldung.com](https://www.baeldung.com/spring-boot-mustache) -->
+[www.baeldung.com](https://www.baeldung.com/spring-boot-mustache)
