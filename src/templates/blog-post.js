@@ -3,15 +3,18 @@ import { graphql } from "gatsby";
 
 import * as Elements from "../components/elements";
 import { Layout } from "../layout";
-import { Head } from "../components/head";
-import { PostTitle } from "../components/post-title";
-import { PostDate } from "../components/post-date";
-import { PostContainer } from "../components/post-container";
-import { SocialShare } from "../components/social-share";
-import { Bio } from "../components/bio";
-import { PostNavigator } from "../components/post-navigator";
-import { Disqus } from "../components/comments/disqus";
-import { Utterances } from "../components/utterances";
+import {
+  Head,
+  PostTitle,
+  PostDate,
+  PostContainer,
+  SocialShare,
+  Bio,
+  PostNavigator,
+  Disqus,
+  Utterances,
+  Gitalk,
+} from "../components";
 import * as ScrollManager from "../utils/scroll";
 import { makeStyles } from "@material-ui/core/styles";
 
