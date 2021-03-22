@@ -1,8 +1,8 @@
 ---
 date: "2021-03-22"
 title: Gatsby.js - "window" is not available during server side rendering. 오류에 대하여
-tags: [JavaScript, Vue, Nuxt]
-category: Vue
+tags: [JavaScript, React, Gatsby]
+category: React
 image: https://user-images.githubusercontent.com/45007556/111966825-b7073900-8b3a-11eb-96dc-cf48486c6aef.png
 draft: false
 ---
