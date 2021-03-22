@@ -54,7 +54,8 @@ export default ({ data, pageContext, location }) => {
         <Elements.Hr />
         <Bio />
         <PostNavigator pageContext={pageContext} />
-        {!!disqusShortName && (
+        <Gitalk />
+        {/* {!!disqusShortName && (
           <Disqus
             post={post}
             shortName={disqusShortName}
@@ -62,7 +63,7 @@ export default ({ data, pageContext, location }) => {
             slug={pageContext.slug}
           />
         )}
-        {!!utterances && <Utterances repo={utterances} />}
+        {!!utterances && <Utterances repo={utterances} />} */}
       </Layout>
     </div>
   );

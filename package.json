@@ -8,6 +8,7 @@
     "url": "https://github.com/JaeYeopHan/gatsby-starter-bee/issues"
   },
   "dependencies": {
+    "@loadable/component": "^5.14.1",
     "@material-ui/core": "^4.11.3",
     "gatsby": "^2.2.8",
     "gatsby-image": "^2.0.34",
@@ -33,6 +34,7 @@
     "gatsby-source-filesystem": "^2.0.28",
     "gatsby-transformer-remark": "^2.3.8",
     "gatsby-transformer-sharp": "^2.1.17",
+    "gitalk": "^1.7.2",
     "intersection-observer": "^0.5.1",
     "katex": "^0.11.1",
     "lodash": "^4.17.19",
