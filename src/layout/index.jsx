@@ -1,7 +1,8 @@
 import React from "react";
 
 import { Top, Header, ThemeSwitch, Footer } from "../components";
-import Grid from "@material-ui/core/Grid";
+import loadable from "@loadable/component";
+const Grid = loadable(() => import("@material-ui/core/Grid"));
 
 import "./index.scss";
 
