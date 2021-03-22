@@ -8,16 +8,12 @@ import { PostTitle } from "../components/post-title";
 import { PostDate } from "../components/post-date";
 import { PostContainer } from "../components/post-container";
 import { SocialShare } from "../components/social-share";
-import { SponsorButton } from "../components/sponsor-button";
 import { Bio } from "../components/bio";
 import { PostNavigator } from "../components/post-navigator";
-import { Disqus } from "../components/disqus";
+import { Disqus } from "../components/comments/disqus";
 import { Utterances } from "../components/utterances";
 import * as ScrollManager from "../utils/scroll";
 import { makeStyles } from "@material-ui/core/styles";
-
-import * as Dom from "../utils/dom";
-import { THEME } from "../constants";
 
 import "../styles/code.scss";
 import "katex/dist/katex.min.css";
@@ -40,7 +36,7 @@ export default ({ data, pageContext, location }) => {
 
   const post = data.markdownRemark;
   const metaData = data.site.siteMetadata;
-  const { title, comment, siteUrl, author, sponsor } = metaData;
+  const { title, comment, siteUrl, author } = metaData;
   const { disqusShortName, utterances } = comment;
   const { title: postTitle, date } = post.frontmatter;
 
@@ -52,9 +48,6 @@ export default ({ data, pageContext, location }) => {
         <PostDate date={date} />
         <PostContainer html={post.html} />
         <SocialShare title={postTitle} author={author} />
-        {!!sponsor.buyMeACoffeeId && (
-          <SponsorButton sponsorId={sponsor.buyMeACoffeeId} />
-        )}
         <Elements.Hr />
         <Bio />
         <PostNavigator pageContext={pageContext} />
@@ -82,9 +75,6 @@ export const pageQuery = graphql`
         comment {
           disqusShortName
           utterances
-        }
-        sponsor {
-          buyMeACoffeeId
         }
       }
     }

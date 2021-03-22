@@ -1,7 +1,7 @@
 export * from "./bio";
 export * from "./category";
 export * from "./contents";
-export * from "./disqus";
+export * from "./comments/disqus";
 export * from "./elements";
 export * from "./footer";
 export * from "./head";
@@ -11,7 +11,6 @@ export * from "./post-date";
 export * from "./post-navigator";
 export * from "./post-title";
 export * from "./social-share";
-export * from "./sponsor-button";
 export * from "./theme-switch";
 export * from "./thumbnail-container";
 export * from "./thumbnail-item";
