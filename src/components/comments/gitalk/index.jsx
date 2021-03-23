@@ -1,6 +1,7 @@
 import React from "react";
 import loadable from "@loadable/component";
 // import GitalkComponent from "gitalk/dist/gitalk-component";
+import "gitalk/dist/gitalk.css";
 const GitalkComponent = loadable(() => import("gitalk/dist/gitalk-component"));
 
 export const Gitalk = () => {
