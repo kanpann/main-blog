@@ -7,7 +7,7 @@ image: https://user-images.githubusercontent.com/45007556/111966825-b7073900-8b3
 draft: false
 ---
 
-이번에 Gatsby.js 블로그 소스가 어느 정도 정리가 되고, Gitalk로 댓글을 적용하려고 코드를 작성하고 Gatsby build를 했더니 아래와 같은 에러가 발생했다.
+이번에 Gatsby.js 블로그 소스가 어느 정도 정리가 되고, Gitalk로 댓글을 적용하려고 코드를 작성하고 `Gatsby build`를 했더니 아래와 같은 에러가 발생했다.
 
 ```bash
  ERROR #95312
@@ -36,7 +36,7 @@ See our docs page for more info on this error: https://gatsby.dev/debug-html
 
 # 원인
 
-Gatsby.js로 개발할 때는 사용 가능한 브라우저를 통해 컴파일을 하지만, 빌드 중에는 서버에서 Webpack을 사용해서 컴파일이 되기 때문에 window 객체에 접근하지 못한다는 것이었다. 그래서 실제로 Gatsby develop은 정상적으로 실행이 되는 것을 확인할 수 있었다.
+Gatsby.js로 개발할 때는 사용 가능한 브라우저를 통해 컴파일을 하지만, 빌드 중에는 서버에서 Webpack을 사용해서 컴파일이 되기 때문에 window 객체에 접근하지 못한다는 것이었다. 그래서 실제로 `Gatsby develop`은 정상적으로 실행이 되는 것을 확인할 수 있었다.
 
 # 방법 탐색
 
@@ -44,12 +44,12 @@ Gatsby.js로 개발할 때는 사용 가능한 브라우저를 통해 컴파일�
 
 1. typeof를 통해 window 객체를 감추기
 2. useEffect를 통해 해당 구문 감싸기
-3. @loadable/component 라이브러리를 사용하기
+3. `@loadable/component` 라이브러리를 사용하기
 
 우선 첫 번째 방법은 typeof를 통해 window 객체를 검사해서 window 객체가 없을 경우 undefined를 뱉게 하는 방법이고,
 두 번째 방법은 useEffect 함수는 렌더링이 완료된 이후에 실행이 되니 문제가 되는 부분을 useEffect 함수 안으로 옮겨서 해결하는 방법이다.
 
-그런데 위에 두 가지 방법은 문제가 있었는데, 내가 작성한 코드일 경우에는 적용이 가능하지만, 문제는 외부 라이브러리 Gitalk 소스코드에 있었기 때문에 직접 수정하는 방법은 사용할 수 없었다. 그래서 찾은 방법인 3번째 @loadable/component 라이브러리를 사용한 방법을 소개해보려고 한다. 앞에 2가지 방법은 위에 주소에서 확인할 수 있다.
+그런데 위에 두 가지 방법은 문제가 있었는데, 내가 작성한 코드일 경우에는 적용이 가능하지만, 문제는 외부 라이브러리 Gitalk 소스코드에 있었기 때문에 직접 수정하는 방법은 사용할 수 없었다. 그래서 찾은 방법인 3번째 `@loadable/component` 라이브러리를 사용한 방법을 소개해보려고 한다. 앞에 2가지 방법은 위에 주소에서 확인할 수 있다.
 
 # @loadable/component 라이브러리를 사용하기
 
