@@ -7,7 +7,7 @@ image: https://user-images.githubusercontent.com/45007556/99826279-7c48c080-2b9b
 draft: false
 ---
 
-[Java에서 Byte로 문자열 자르기](/ECMA-JavaScript)에서 한번 소개했던 적은 있는데, 이번엔 JS에서 해야 하는 상황이 발생했다.
+[Java에서 Byte로 문자열 자르기](/Java-Byte-String)에서 한번 소개했던 적은 있는데, 이번엔 JS에서 해야 하는 상황이 발생했다.
 ![image](https://user-images.githubusercontent.com/45007556/112081265-b7e5ac80-8bc6-11eb-8078-8d173f4f1e58.png)
 
 블로그 목록 표출 시 제목이 너무 긴 게시물들이 있어서 20글자로 제한하려고 했는데, 영어로 된 게시물들의 경우 20글자로 자르게 되면 한글보다 엄청 짧아지는 경향이 있기 때문이었다.
