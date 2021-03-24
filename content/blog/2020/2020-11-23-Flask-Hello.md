@@ -1,5 +1,5 @@
 ---
-date: '2020-11-23'
+date: "2020-11-23"
 draft: false
 title: Flask 웹 프레임워크를 이용한 Hello World! 출력하기
 category: Python
@@ -12,7 +12,7 @@ subtitle: 매우 경량화되어 있어 매력이 있는 Flask를 사용해 간�
 
 # 플라스크(Flask)란?
 
-![image](https://user-images.githubusercontent.com/45007556/99931497-1a08df00-2d98-11eb-8b9a-8024dd4b4a69.png)
+![image](https://user-images.githubusercontent.com/45007556/112269831-3d975400-8cbc-11eb-88ea-e9934d534fbb.png)
 
 파이썬에서 웹 개발을 도와주는 프레임워크인데, 사람들이 흔히 '마이크로 웹 프레임워크'라고 한다. 이유는 파이썬 파일 한개만 있어도 웹 프로그램 작성이 가능하다. ~~ㄷㄷㄷ~~
 마이크로 웹 프로젝트 답게 매우 경량화되어 있어서 직접 라이브러리를 설치하고 개발환경 셋팅하면서 파이썬에 더 익숙해지기 좋을 것 같다. ~~이게 싫으면 장고로 가자~~
