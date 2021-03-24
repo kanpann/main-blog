@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 import { TARGET_CLASS } from "../../utils/visible";
 import Grid from "@material-ui/core/Grid";
 import "./index.scss";
+import { ThumbnailImage } from "./thumbnail-image";
 
 function substrToByte(targetStr, maxByte) {
   let buffer = 0;
@@ -31,10 +32,7 @@ export const ThumbnailItem = ({ node }) => {
         to={node.fields.slug.substr(17)}
       >
         <div className="thum-frame">
-          <div
-            className="thum-img"
-            style={{ backgroundImage: `url(${node.frontmatter.image})` }}
-          />
+          <ThumbnailImage image={node.frontmatter.image} />
           <h2>{title || node.fields.slug}</h2>
           <p dangerouslySetInnerHTML={{ __html: node.excerpt }}></p>
         </div>

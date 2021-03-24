@@ -20,6 +20,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import "../styles/code.scss";
 import "katex/dist/katex.min.css";
+import { ThumbnailImage } from "../components/thumbnail-item/thumbnail-image";
 
 const useStyles = makeStyles({
   pt: {
@@ -28,9 +29,6 @@ const useStyles = makeStyles({
 });
 
 export default ({ data, pageContext, location }) => {
-  // const isDarkTheme = Dom.hasClassOfBody(THEME.DARK);
-
-  // console.log(isDarkTheme);
   const classes = useStyles();
   useEffect(() => {
     ScrollManager.init();
@@ -41,11 +39,12 @@ export default ({ data, pageContext, location }) => {
   const metaData = data.site.siteMetadata;
   const { title, comment, siteUrl, author } = metaData;
   const { disqusShortName, utterances } = comment;
-  const { title: postTitle, date } = post.frontmatter;
+  const { title: postTitle, date, image } = post.frontmatter;
 
   return (
     <div className={classes.pt}>
       <Layout location={location} title={title}>
+        <ThumbnailImage image={image} height="250" radius={true} />
         <Head title={postTitle} description={post.excerpt} />
         <PostTitle title={postTitle} />
         <PostDate date={date} />
@@ -88,6 +87,7 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
+        image
         date(formatString: "MMMM DD, YYYY")
       }
     }
