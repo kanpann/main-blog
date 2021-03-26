@@ -8,7 +8,7 @@ draft: false
 
 세션 로그인 같은 경우 매번 요청이 있을 때마다 세션 시간이 자동 갱신이 되기 때문에 필요가 없지만, JWT 같은 경우 토큰의 유효기간이 이미 발급과 동시에 정해지게 된다. 그래서 만약 JWT 토큰을 연장하기 위한 방법은 다시 재발급을 하는 방법밖에 없는데, 그렇게 되면 기존에 방식대로면 사용자가 직접 로그인을 한 번 더 해주어야 한다. 사이트를 이용하다 30분마다 로그인을 다시 해야 한다니 조금 번거롭지 않은가?
 
-# Access Token, Refresh
+# Access Token, Refresh Token
 
 JWT 진영에서 이 문제를 해결하기 위한 방법이 토큰 2개를 발급한다. 하나는 유효기간이 짧은 `Access Token(보통 30분)`, 다른 하나는 유효기간이 긴 `Refresh Token(보통 2주)`을 발급하는 것이다. 그래서 인증을 할 때 클라이언트는 서버에 요청을 할 때마다 `Access Token`을 서버로 보내면서 사용하다가 어느새 `Access Token`이 만료가 되어 서버로부터 `401 Unauthorized`에러를 받게 되면 `Refresh Token`을 서버로 보내 다시 `Access Token`을 발급받는다. 이 과정은 아래에 이미지를 보면 이해가 빠르다. [이미지 출처](http://blog.logicwind.com/jwt-refresh-token-implementation-in-node-js/)
 ![image](https://user-images.githubusercontent.com/45007556/112577366-8889a680-8e37-11eb-873c-14545bb84cfa.png)
