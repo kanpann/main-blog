@@ -2,7 +2,7 @@
 date: "2021-03-25"
 title: "JWT Refresh Token을 정말 사용해야 할까?"
 category: Think
-image: https://user-images.githubusercontent.com/45007556/103328175-0e958b80-4a9b-11eb-9db7-66230e0f057c.png
+image: https://user-images.githubusercontent.com/45007556/112591329-8deeed00-8e47-11eb-86e7-6db7ee66de0a.png
 draft: false
 ---
 
