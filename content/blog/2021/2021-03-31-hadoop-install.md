@@ -173,7 +173,7 @@ cd
 
 [하둡 다운로드](https://downloads.apache.org/hadoop/common/)에서 원하는 버전 선택 후 .tar.gz 파일의 링크 주소 복사
 
-![Hadoop%20%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%20b8e2bd114b03467087c6a05a540f5cc8/Untitled.png](Hadoop%20%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%20b8e2bd114b03467087c6a05a540f5cc8/Untitled.png)
+![Untitled](https://user-images.githubusercontent.com/45007556/113102332-dab43880-9238-11eb-9f5d-50a304e4c22c.png)
 
 나는 3.1.4버전을 설치할 것이기 때문에 해당 주소를 다운 받았다.
 
