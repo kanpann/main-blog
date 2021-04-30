@@ -175,6 +175,37 @@ public class AsyncLoginProcessingFilter extends AbstractAuthenticationProcessing
 
 사용자 요청이 들어오면 해당 필터 attemptAuthentication 메소드가 실행되어 POST요청이고, 비동기 요청인지 확인 후 맞으면 요청할 때 넘어온 username, password를 가지고 토큰을 생성하여 AuthenticationManager로 전달한다.
 
+## Service 작성 
+```java
+/**
+ * 유저 정보를 반환하는 클래스
+ */
+@Slf4j
+@RequiredArgsConstructor
+@Service
+public class CustomUserDetailsService implements UserDetailsService {
+    private final MemberRepository memberRepository;
+
+    /**
+     * 유저 정보를 조회 후 반환.
+     * @param username
+     * @return
+     * @throws UsernameNotFoundException
+     */
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Member member = memberRepository.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("해당 유저를 찾을 수 없습니다. :::"+username));
+
+        Collection<SimpleGrantedAuthority> roles = new ArrayList<>();
+        roles.add(new SimpleGrantedAuthority(member.getRole().getValue()));
+
+        return new User(member.getUsername(), member.getPassword(), roles);
+    }
+}
+```
+스프링 시큐리티의 UserDetatilsService를 상속받은 후 DB에서 유저 정보를 조회하는 메소드를 구현해주었다.
+
 ## Provider 작성
 
 ```java
