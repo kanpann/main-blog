@@ -10,7 +10,7 @@ subtitle: 콘솔에 찍히는 DB 로그를 예쁘게 찍어보자
 
 스프링 부트에 마이바티스를 설정하면서 로그를 이쁘게 찍으려고 logback 설정했던 방법에 대해서 정리하려고 한다.
 
-# 프로젝트를 받아주자
+# 예제 프로젝트 다운로드
 
 git bash가 깔려 있다면 아래 명령어를 사용해 logback 설정해볼 [예제 프로젝트](https://github.com/gunkim0318/SpringBoot-Mysql-MyBatis-Logback-Sample/tree/mysql-mybatis)를 받아주자. 만약 이미 프로젝트가 있다면 생략해도 된다.
 
@@ -94,6 +94,17 @@ log4jdbc.dump.sql.maxlinelength=0
     <logger name="jdbc.connection" level="OFF"/>
 </configuration>
 ```
+
+# logback 관련 설정하기
+```yml
+spring:
+  datasource:
+    url: jdbc:log4jdbc:mariadb://{주소}:{포트}/{디비명}
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    username: # 아이디
+    password: # 비밀번호
+```
+url을 `jdbc:log4jdbc~`로 변경해주고, 드라이버 이름을 `net.sf.log4jdbc.sql.jdbcapi.DriverSpy`로 변경해주면 된다.
 
 # 결과 확인하기
 
