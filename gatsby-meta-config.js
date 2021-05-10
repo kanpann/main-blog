@@ -6,7 +6,7 @@ module.exports = {
   siteUrl: `https://gunlog.dev`, // Your blog site url
   social: {
     twitter: ``, // Your Twitter account
-    github: `kanpann`, // Your GitHub account
+    github: `gunkims`, // Your GitHub account
     medium: ``, // Your Medium account
     facebook: ``, // Your Facebook account
     linkedin: ``, // Your LinkedIn account
@@ -15,7 +15,7 @@ module.exports = {
   keywords: [`blog`],
   comment: {
     disqusShortName: "", // Your disqus-short-name. check disqus.com.
-    utterances: "kanpann/https://github.com/kanpann/blog-gitalk.git", // Your repository for archive comment
+    utterances: "kanpann/https://github.com/gunkims/blog-gitalk.git", // Your repository for archive comment
   },
   configs: {
     countOfInitialPost: 10, // Config your initial count of post
