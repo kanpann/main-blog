@@ -4,9 +4,9 @@ import { SiteMeta } from '../site.config'
 
 const generateRssItem = (post: Post): string => `
   <item>
-    <guid><![CDATA[https://gunlog.dev/${post.id}]]></guid>
+    <guid><![CDATA[${post.id}]]></guid>
     <title><![CDATA[${post.title}]]></title>
-    <link><![CDATA[https://gunlog.dev/${post.title}]]></link>
+    <link><![CDATA[https://gunlog.dev/${post.id}]]></link>
     <description><![CDATA[${post.excerpt}]]></description>
     <pubDate>${new Date(post.date).toUTCString()}</pubDate>
   </item>
