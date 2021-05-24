@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import PostList from '../components/post/PostList'
 import { getSortedPostsData, Post } from '../lib/posts'
 import Layout from '../components/common/Layout'
@@ -27,4 +27,4 @@ export const getStaticProps = async () => {
     },
   }
 }
-export default Home
+export default memo(Home)

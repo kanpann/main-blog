@@ -1,7 +1,7 @@
 import { getSortedPostsData, Post } from '../lib/posts'
 import { Category, CategoryInfo } from '../site.config'
 import styled, { PostHeaderTheme } from 'styled-components'
-import React from 'react'
+import React, { memo } from 'react'
 import PostList from '../components/post/PostList'
 import Layout from '../components/common/Layout'
 import { useRouter } from 'next/dist/client/router'
@@ -82,4 +82,4 @@ export const getStaticProps = async () => {
     },
   }
 }
-export default Menu
+export default memo(Menu)

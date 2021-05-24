@@ -30,9 +30,9 @@ const generateRssChannel = (posts: Post[]): string => {
 }
 
 const generateRss = (allPostsData: Post[]): void => {
-  // if (process.env.NODE_ENV === 'development') {
-  //   return
-  // }
+  if (process.env.NODE_ENV === 'development') {
+    return
+  }
 
   const rss = generateRssChannel(allPostsData)
 
