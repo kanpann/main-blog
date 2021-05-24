@@ -1,4 +1,5 @@
-public
-.cache
 node_modules
+.next
 .DS_Store
+public/robots.txt
+public/sitemap.xml
