@@ -4,6 +4,7 @@ import { getSortedPostsData, Post } from '../lib/posts'
 import Layout from '../components/common/Layout'
 import generateRss from '../lib/feed'
 import generateSitemap from '../lib/sitemap'
+import generateRobots from '../lib/robots'
 
 type HomeProps = {
   posts: Post[]
@@ -20,6 +21,7 @@ export const getStaticProps = async () => {
   const posts = await getSortedPostsData()
   generateRss(posts)
   generateSitemap(posts)
+  generateRobots()
 
   return {
     props: {

@@ -43,9 +43,9 @@ function generateComponents(dir: string, arr: string[]) {
   })
 }
 
-export const getPostData = (fileName: string): GrayMatterFile<string> => {
+export const getPostData = (fileName: string, dir: string = postsDirectory): GrayMatterFile<string> => {
   const arr = []
-  generateComponents(postsDirectory, arr)
+  generateComponents(dir, arr)
   const fullPath: string = arr.find((savedFile: string) => savedFile.indexOf(fileName) != -1)!!
   const fileContents: string = fs.readFileSync(fullPath, 'utf8')
 

@@ -82,3 +82,9 @@ export const getPostData = async (id: string): Promise<Post> => {
     image: image,
   }
 }
+
+export const getAbout = async (): Promise<string> => {
+  const content: string = util.getPostData('About.md', process.cwd()).content
+
+  return await util.getContents(content)
+}

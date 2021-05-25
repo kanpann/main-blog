@@ -37,6 +37,10 @@ module.exports = {
       sub: ['Spring', 'Kotlin'],
     },
     JavaScript: { isSub: true, sub: ['React', 'Vue'] },
+    Python: {
+      isSub: false,
+      sub: [],
+    },
     Linux: {
       isSub: false,
       sub: [],
@@ -94,6 +98,10 @@ module.exports = {
     '문제 해결': new Category(
       'https://user-images.githubusercontent.com/45007556/118911136-ad465a00-b960-11eb-8cbd-6791b04fb871.jpg',
       '개발을 하면서 해결한 문제에 대한 해결 방법에 대한 글들을 모아놓은 카테고리입니다.',
+    ),
+    Python: new Category(
+      'https://user-images.githubusercontent.com/45007556/119506258-b4c69280-bda8-11eb-8c09-7376ffa2e64c.png',
+      '파이썬에 대한 글들을 모아놓은 카테고리입니다.',
     ),
   },
 }

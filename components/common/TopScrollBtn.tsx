@@ -10,12 +10,10 @@ const ScrollBtn = styled.div`
   right: 10px;
   padding: 5px;
   padding-bottom: 0px;
-  background-color: ${(props: DefaultTheme) => props.theme.app.box};
   color: ${(props: DefaultTheme) => props.theme.app.title};
   padding: 10px;
   border-radius: 10px;
   padding-bottom: 0px;
-  border: 1px solid #ababab;
   cursor: pointer;
   opacity: 0.7;
 `
@@ -39,7 +37,7 @@ const TopScrollBtn = () => {
   return (
     <Collapse in={open}>
       <ScrollBtn onClick={handleClick}>
-        <VerticalAlignTopIcon />
+        <VerticalAlignTopIcon fontSize="large" />
       </ScrollBtn>
     </Collapse>
   )

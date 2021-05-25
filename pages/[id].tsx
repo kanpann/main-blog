@@ -18,6 +18,8 @@ const Title = styled.h1`
 `
 const Content = styled.div`
   color: ${(props: DefaultTheme) => props.theme.app.font};
+  line-height: 2.2;
+  font-size: 1.1rem;
   a {
     text-decoration: none;
     color: #3535f7;
@@ -52,6 +54,18 @@ const Content = styled.div`
   pre {
     padding: 15px;
     border-radius: 5px;
+  }
+  blockquote {
+    border-left: 15px solid #81dfed;
+    padding: 5px 0px 5px 20px;
+    background-color: #ececec;
+    margin: 0px;
+    font-style: oblique;
+    p {
+      color: #464646;
+      margin: 0px;
+      padding: 0px;
+    }
   }
 `
 
