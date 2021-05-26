@@ -11,10 +11,10 @@ const Style = createGlobalStyle`
     color: ${(props: DefaultTheme) => props.theme.app.title}
   }
   svg {
-    fill: ${(props: DefaultTheme) => props.theme.app.title}
+    fill: ${(props: DefaultTheme) => props.theme.app.title} !important;
   }
   .gt-comment-content {
-    fill: ${(props: DefaultTheme) => props.theme.app.background}
+    background-color: ${(props: DefaultTheme) => props.theme.app.background} !important;
   }
 `
 
