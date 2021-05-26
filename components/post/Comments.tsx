@@ -7,8 +7,14 @@ import { createGlobalStyle } from 'styled-components'
 import { DefaultTheme } from '../../theme/Theme'
 
 const Style = createGlobalStyle`
-  p {
+  .gt-container {
     color: ${(props: DefaultTheme) => props.theme.app.title}
+  }
+  svg {
+    fill: ${(props: DefaultTheme) => props.theme.app.title}
+  }
+  .gt-comment-content {
+    fill: ${(props: DefaultTheme) => props.theme.app.background}
   }
 `
 

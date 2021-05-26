@@ -1,5 +1,5 @@
 ---
-date: "2020-08-06"
+date: '2020-08-06'
 title: 스프링 시큐리티 정리
 category: Spring
 tag: [Spring Boot, Spring Security]
@@ -78,11 +78,7 @@ same-origin, 동기화 토큰 패턴 등 여러 방법이 있지만 스�
 
 ```html
 <form method="post" action="/transfer">
-  <input
-    type="hidden"
-    name="_csrf"
-    value="4bfd1575-3ad1-4d21-96c7-4ef2d9f86721"
-  />
+  <input type="hidden" name="_csrf" value="4bfd1575-3ad1-4d21-96c7-4ef2d9f86721" />
   <input type="text" name="amount" />
   <input type="text" name="routingNumber" />
   <input type="hidden" name="account" />
@@ -113,7 +109,7 @@ amount=100.00&routingNumber=1234&account=9876&\_csrf=4bfd1575-3ad1-4d21-96c7-4ef
 
 ![image](https://user-images.githubusercontent.com/45007556/91036976-37b49400-e643-11ea-809d-841e6d4befd3.png)
 
-1. **UsernamePasswordAuthenticationFilter(AuthenticationFilter)**는 **HttpServletRequest**에서 사용자가 전송한 아이디와 패스워드를 가로챈다.
+1. **UsernamePasswordAuthenticationFilter(AuthenticationFilter)** 는 **HttpServletRequest**에서 사용자가 전송한 아이디와 패스워드를 가로챈다.
 2. **AuthenticationFilter**는 인증용 객체 **Authentication**을 생성한다.
 3. **AuthenticationFilter**는 인증을 위해 **AuthenticationManager**에게 **Authentication**을 전달한다.
 4. **AuthenticationManager**는 실제 인증 기능이 수행을 위해 **AuthenticationProvider**에게 다시 **Authentication**을 전달한다.
@@ -127,7 +123,7 @@ amount=100.00&routingNumber=1234&account=9876&\_csrf=4bfd1575-3ad1-4d21-96c7-4ef
 # 스프링 시큐리티 필터 체인
 
 ![image](https://user-images.githubusercontent.com/45007556/91037118-70ed0400-e643-11ea-8280-acf4aaa34245.png)
-위에서 시큐리티 인증 흐름을 설명할 때 2번에서 form 기반 인증 흐름을 설명하기 위해 **UsernamePasswordAuthenticationFilter(AuthenticationFilter)**에 대해서 설명했었다. 그런데 시큐리티에서 지원하는 필터는 이것 하나만이 아니라 아래와 같은 순서로 여러 필터가 실행이 되는데 그 중 하나인 것이다. 전부 외워둘 필요는 없지만 훑어놨다가 나중에 커스텀할 일이 생겼을 때 다시 찾아보면 될 듯 하다.
+위에서 시큐리티 인증 흐름을 설명할 때 2번에서 form 기반 인증 흐름을 설명하기 위해 **UsernamePasswordAuthenticationFilter(AuthenticationFilter)** 에 대해서 설명했었다. 그런데 시큐리티에서 지원하는 필터는 이것 하나만이 아니라 아래와 같은 순서로 여러 필터가 실행이 되는데 그 중 하나인 것이다. 전부 외워둘 필요는 없지만 훑어놨다가 나중에 커스텀할 일이 생겼을 때 다시 찾아보면 될 듯 하다.
 
 1. **WebAsyncManagerIntegrationFilter** - ThreadLocal기반으로 같은 쓰레드 내에서만 SecurityContext가 공유됨. SpringSecurityContextHolder를 비동기(Async)와 관련된 기능을 쓸 때에도 SecurityContext를 사용할 수 있도록 만들어줌.
 2. **SecurityContextPersistenceFilter** - SecurityContext가 없으면 생성하고, 있을 경우 불러오는 기능을 함.
@@ -206,7 +202,7 @@ amount=100.00&routingNumber=1234&account=9876&\_csrf=4bfd1575-3ad1-4d21-96c7-4ef
 
 encode 메소드를 통해 비밀번호를 암호화를 해서 반환 받은 문자열을 살펴보면 아래와 같이 앞에 접두사로 {암호화 방식}이 붙는다. bcrypt로 암호화를 했기 때문에 {bcrypt}가 붙었다.
 
-    {bcrypt}$2a$10\$g1PWM7YhvhhA3PUtnSh.mOZVQFQe7fTO0C2na2Xpbrit.bwYlQdPe
+> {bcrypt}$2a$10\$g1PWM7YhvhhA3PUtnSh.mOZVQFQe7fTO0C2na2Xpbrit.bwYlQdPe
 
 # 참고
 

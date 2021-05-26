@@ -13,13 +13,14 @@ const Title = styled.h1`
   font-family: nanumSquare;
   line-height: 50px;
   margin: 0px;
-  word-break: keep-all;
+  word-break: break-all;
   color: ${(props: DefaultTheme) => props.theme.app.title};
 `
 const Content = styled.div`
   color: ${(props: DefaultTheme) => props.theme.app.font};
   line-height: 2.2;
   font-size: 1.1rem;
+  word-break: break-all;
   a {
     text-decoration: none;
     color: #3535f7;
@@ -40,7 +41,6 @@ const Content = styled.div`
   h5 {
     color: ${(props: DefaultTheme) => props.theme.app.title};
     line-height: 40px;
-    word-break: keep-all;
   }
   p code {
     background: #dadada;
@@ -65,6 +65,20 @@ const Content = styled.div`
       color: #464646;
       margin: 0px;
       padding: 0px;
+    }
+  }
+
+  table {
+    box-shadow: 0px 0px 5px 0px;
+    &,
+    th,
+    td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    th {
+      background-color: #9292ff;
+      color: white;
     }
   }
 `
