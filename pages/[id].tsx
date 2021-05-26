@@ -1,5 +1,5 @@
 import React from 'react'
-import { getAllPostIds, getPostData, Post as PostType } from '../lib/posts'
+import { getAllPostIds, getPostData } from '../lib/posts'
 import DateView from '../components/post/DateView'
 import styled from 'styled-components'
 import 'highlight.js/styles/atom-one-dark.css'
@@ -7,6 +7,7 @@ import Comments from '../components/post/Comments'
 import Layout from '../components/common/Layout'
 import { DefaultTheme } from '../theme/Theme'
 import Chips from '../components/post/Chips'
+import { Post as PostType } from '../lib/types'
 
 const Title = styled.h1`
   font-size: 2.4rem;

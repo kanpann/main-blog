@@ -1,6 +1,6 @@
 import React from 'react'
 import { createStyles, Grid, makeStyles, Theme } from '@material-ui/core'
-import { Post as PostType } from '../../lib/posts'
+import { Post as PostType } from '../../lib/types'
 import { Post } from './Post'
 
 const useStyles = makeStyles(() =>
@@ -25,7 +25,7 @@ const PostList = ({ posts }: PostListProps) => {
             title={title}
             date={date}
             image={image}
-            excerpt={excerpt}
+            excerpt={excerpt!!}
             tags={tags}
             category={category}
           />

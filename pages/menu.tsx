@@ -1,10 +1,11 @@
-import { getSortedPostsData, Post } from '../lib/posts'
+import { getSortedPostsData } from '../lib/posts'
 import { Category, CategoryInfo } from '../site.config'
 import styled, { PostHeaderTheme } from 'styled-components'
 import React, { memo } from 'react'
 import PostList from '../components/post/PostList'
 import Layout from '../components/common/Layout'
 import { useRouter } from 'next/dist/client/router'
+import { Post } from '../lib/types'
 
 const PostHeader = styled.div`
   background-size: cover;

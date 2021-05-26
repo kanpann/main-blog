@@ -2,10 +2,11 @@ import React from 'react'
 import { useRouter } from 'next/dist/client/router'
 import Layout from '../components/common/Layout'
 import PostList from '../components/post/PostList'
-import { getSortedPostsData, Post } from '../lib/posts'
+import { getSortedPostsData } from '../lib/posts'
 import { styled as muiStyled } from '@material-ui/core/styles'
 import { Typography, withTheme } from '@material-ui/core'
 import { DefaultTheme } from '../theme/Theme'
+import { Post } from '../lib/types'
 
 const Title = muiStyled(withTheme(Typography))((props: DefaultTheme) => ({
   color: props.theme.app.title,

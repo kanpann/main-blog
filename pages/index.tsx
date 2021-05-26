@@ -1,6 +1,7 @@
 import React, { memo } from 'react'
 import PostList from '../components/post/PostList'
-import { getSortedPostsData, Post } from '../lib/posts'
+import { getSortedPostsData } from '../lib/posts'
+import { Post } from '../lib/types'
 import Layout from '../components/common/Layout'
 import generateRss from '../lib/feed'
 import generateSitemap from '../lib/sitemap'
