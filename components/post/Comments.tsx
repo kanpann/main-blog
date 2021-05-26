@@ -18,10 +18,10 @@ const Style = createGlobalStyle`
     border-radius: 10px;
   }
   .gt-comment-username {
-    color: ${(props: DefaultTheme) => props.theme.app.title}
+    color: ${(props: DefaultTheme) => props.theme.app.title} !important;
   }
   .gt-comment-date {
-    color: ${(props: DefaultTheme) => props.theme.app.font}
+    color: ${(props: DefaultTheme) => props.theme.app.font} !important;
   }
 `
 
