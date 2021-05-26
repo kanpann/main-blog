@@ -16,6 +16,32 @@ const Title = styled.h1`
   word-break: break-all;
   color: ${(props: DefaultTheme) => props.theme.app.title};
 `
+const Toc = styled.div`
+  .toc {
+    background: rgb(206 230 255 / 40%);
+    border-radius: 5px;
+    padding: 5px 20px;
+    margin-bottom: 20px;
+    word-break: break-all;
+    h3 {
+      color: #0b206f;
+      border-bottom: 1px solid;
+    }
+    ul {
+      margin-top: 0px;
+      padding-left: 20px;
+
+      li {
+        color: black;
+        list-style-type: decimal;
+
+        a {
+          color: black;
+        }
+      }
+    }
+  }
+`
 const Content = styled.div`
   color: ${(props: DefaultTheme) => props.theme.app.font};
   line-height: 2.2;
@@ -27,9 +53,11 @@ const Content = styled.div`
     font-weight: bold;
   }
   h1 {
-    border-bottom: 3px solid #dcdcdc;
+    border-bottom: 3px solid #949494;
+    border-left: 10px solid #dcdcdc;
     padding-bottom: 10px;
     padding-top: 10px;
+    padding-left: 10px;
   }
   p {
     color: ${(props: DefaultTheme) => props.theme.app.font};
@@ -87,7 +115,8 @@ type PostProps = {
   post: PostType
 }
 const Post = ({ post }: PostProps) => {
-  const { title, date, content, tags, category, image } = post
+  const { title, date, content, tags, category, image, toc } = post
+
   return (
     <>
       <Layout helmetInfo={{ title: title, content: content.substr(0, 50), image: image }}>
@@ -95,6 +124,7 @@ const Post = ({ post }: PostProps) => {
         <DateView date={date} />
         <hr />
         <Chips category={category} tags={tags} />
+        <Toc dangerouslySetInnerHTML={{ __html: toc!! }} />
         <Content dangerouslySetInnerHTML={{ __html: content }} />
         <Comments />
       </Layout>
