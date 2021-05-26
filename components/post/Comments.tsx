@@ -15,6 +15,13 @@ const Style = createGlobalStyle`
   }
   .gt-comment-content {
     background-color: ${(props: DefaultTheme) => props.theme.app.background} !important;
+    border-radius: 10px;
+  }
+  .gt-comment-username {
+    color: ${(props: DefaultTheme) => props.theme.app.title}
+  }
+  .gt-comment-date {
+    color: ${(props: DefaultTheme) => props.theme.app.font}
   }
 `
 
