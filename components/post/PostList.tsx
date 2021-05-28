@@ -19,7 +19,7 @@ const PostList = ({ posts }: PostListProps) => {
   return (
     <Grid container item direction="row" justify="center" alignItems="flex-start">
       {posts.map(({ id, date, title, image, excerpt, tags, category }) => (
-        <Grid xs={12} md={6} item key={id} className={classes.link}>
+        <Grid xs={12} sm={12} md={6} lg={6} xl={6} item key={id} className={classes.link}>
           <Post
             id={id}
             title={title}
