@@ -23,7 +23,7 @@ const Style = createGlobalStyle`
   .gt-comment-date {
     color: ${(props: DefaultTheme) => props.theme.app.font} !important;
   }
-  .gt-comment-body markdown-body {
+  .gt-comment-body {
     p {
       color: ${(props: DefaultTheme) => props.theme.app.title} !important;
       font-weight: bold;
