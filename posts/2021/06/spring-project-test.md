@@ -6,7 +6,7 @@ image: https://user-images.githubusercontent.com/45007556/120090298-4bde7200-c13
 tags: [Spring, Spring Boot, JUnit]
 ---
 
-오늘은 평소 운영하는 개발자 단톡방을 보고 있다가 JUnit으로 테스트하는 방법을 잘 모르는 사람이 생각보다 엄청 많은 것 같아서 JUnit5로 테스트하는 과정을 한번 포스팅해보려고 한다.
+오늘은 평소 운영하는 개발자 단톡방을 보고 있다가 JUnit으로 테스트하는 방법을 잘 모르는 사람이 생각보다 엄청 많은 것 같아서 JUnit5로 테스트하는 과정을 한번 포스팅해보려고 한다. [예제 프로젝트](https://github.com/gunkims/spring-example/tree/master/project-test)
 
 # 전통적(?)인 테스트 방법
 
