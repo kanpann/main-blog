@@ -4,9 +4,12 @@ import styled from 'styled-components'
 function printElapsedDate(date: string): string {
   const postDate = new Date(date)
   const nowDate = new Date()
-  const dateDiff: number = Math.ceil((nowDate.getTime() - postDate.getTime()) / (1000 * 3600 * 24))
+  const dateDiff: number =
+    Math.ceil((nowDate.getTime() - postDate.getTime()) / (1000 * 3600 * 24)) - 1
 
-  if (dateDiff < 31) {
+  if (dateDiff === 0) {
+    return '오늘'
+  } else if (dateDiff < 31) {
     return dateDiff + '일 전'
   } else {
     const ElapsedMonth: any = Math.floor(dateDiff / 31)
