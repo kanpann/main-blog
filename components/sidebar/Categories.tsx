@@ -1,4 +1,3 @@
-// 카테고리 정보를 밖에서 주입 받게 수정하면 이 컴포넌트를 재사용할 수 있을 것 같음. 나중에 고려해봄
 import { Category } from '../../site.config'
 import styled from 'styled-components'
 import Link from 'next/link'
@@ -11,6 +10,10 @@ const List = styled.ul`
   padding: 0px;
   margin: 0px;
 `
+const TopList = styled(List)`
+  width: 85%;
+  float: right;
+`
 const Item = styled.li`
   padding-top: 5px;
   padding-left: 20px;
@@ -19,6 +22,7 @@ const Item = styled.li`
 
   .parent {
     color: ${(props: DefaultTheme) => props.theme.app.title};
+    font-size: 1.3rem;
   }
   .child {
     color: #717171;
@@ -58,12 +62,10 @@ const Categories = () => {
           subMenus = Category[categoryName]['sub']
         }
         return (
-          <List key={index} style={{ width: '85%', float: 'right' }}>
+          <TopList key={index}>
             <Item>
               <Link href={url ? url : `/menu?menu=${categoryName}`}>
-                <a className="parent" style={{ fontSize: '1.3rem' }}>
-                  {categoryName}
-                </a>
+                <a className="parent">{categoryName}</a>
               </Link>
               <List>
                 {isSub &&
@@ -76,7 +78,7 @@ const Categories = () => {
                   ))}
               </List>
             </Item>
-          </List>
+          </TopList>
         )
       })}
     </>

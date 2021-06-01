@@ -7,7 +7,7 @@ import { styled as muiStyled } from '@material-ui/core/styles'
 import styled, { SideBarTheme } from 'styled-components'
 import { DefaultTheme } from '../../theme/Theme'
 import Social from './Social'
-import Logo from './Logo'
+import Logo from '../common/Logo'
 import SearchForm from './SearchForm'
 
 const MainFrame = styled.div`

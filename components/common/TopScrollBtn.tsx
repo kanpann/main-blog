@@ -1,8 +1,8 @@
-import { Collapse, IconButton } from '@material-ui/core'
-import VerticalAlignTopIcon from '@material-ui/icons/VerticalAlignTop'
 import { useEffect, useState } from 'react'
-import styled from 'styled-components'
 import { DefaultTheme } from '../../theme/Theme'
+import styled from 'styled-components'
+import Collapse from '@material-ui/core/Collapse'
+import VerticalAlignTopIcon from '@material-ui/icons/VerticalAlignTop'
 
 const ScrollBtn = styled.div`
   position: fixed;

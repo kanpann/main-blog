@@ -3,9 +3,9 @@ import PostList from '../components/post/PostList'
 import { getSortedPostsData } from '../lib/posts'
 import { Post } from '../lib/types'
 import Layout from '../components/common/Layout'
-import generateRss from '../lib/feed'
-import generateSitemap from '../lib/sitemap'
-import generateRobots from '../lib/robots'
+import generateRss from '../lib/meta/feed'
+import generateSitemap from '../lib/meta/sitemap'
+import generateRobots from '../lib/meta/robots'
 
 type HomeProps = {
   posts: Post[]

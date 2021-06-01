@@ -7,6 +7,7 @@ import { DefaultTheme } from '../theme/Theme'
 import { useRouter } from 'next/dist/client/router'
 import PostList from '../components/post/PostList'
 import { Post } from '../lib/types'
+import MyHelmet from '../components/common/MyHelmet'
 
 const NotFoundMsg = muiStyled(withTheme(Typography))((props: DefaultTheme) => ({
   color: props.theme.app.title,
@@ -30,11 +31,8 @@ const Search = ({ posts }: SearchProps) => {
   )
 
   return (
-    <Layout
-      helmetInfo={{
-        title: `'${keyword}'의 검색결과`,
-      }}
-    >
+    <Layout>
+      <MyHelmet title={`'${keyword}'의 검색결과`} content={`'${keyword}'의 검색결과입니다.`} />
       {searchResult.length > 0 ? (
         searchResult && <PostList posts={searchResult} />
       ) : (

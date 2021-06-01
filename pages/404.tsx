@@ -4,6 +4,7 @@ import { Button, Typography, withTheme } from '@material-ui/core'
 import { DefaultTheme } from 'styled-components'
 import React from 'react'
 import Link from 'next/link'
+import MyHelmet from '../components/common/MyHelmet'
 
 const NotFoundMsg = muiStyled(withTheme(Typography))((props: DefaultTheme) => ({
   color: props.theme.app.title,
@@ -16,12 +17,8 @@ const ContentsMsg = muiStyled(withTheme(Typography))((props: DefaultTheme) => ({
 }))
 const NotFound = () => {
   return (
-    <Layout
-      helmetInfo={{
-        title: `404 - Page Not Found`,
-        content: `페이지를 찾을 수 없어요.`,
-      }}
-    >
+    <Layout>
+      <MyHelmet title="404 - Page Not Found" content="페이지를 찾을 수 없어요." />
       <NotFoundMsg variant="h1" align="center">
         404
       </NotFoundMsg>

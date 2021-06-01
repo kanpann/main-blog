@@ -1,5 +1,5 @@
 import fs from 'fs'
-import { SiteMeta } from '../site.config'
+import { SiteMeta } from '../../site.config'
 
 const { url } = SiteMeta;
 

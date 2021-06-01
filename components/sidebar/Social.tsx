@@ -5,7 +5,6 @@ import { DefaultTheme } from '../../theme/Theme'
 import GitHubIcon from '@material-ui/icons/GitHub'
 import EmailIcon from '@material-ui/icons/Email'
 import RssFeedIcon from '@material-ui/icons/RssFeed'
-import { createMuiTheme } from '@material-ui/core'
 
 const Frame = styled.div`
   cursor: pointer;

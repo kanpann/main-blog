@@ -8,6 +8,8 @@ import Layout from '../components/common/Layout'
 import { DefaultTheme } from '../theme/Theme'
 import Chips from '../components/post/Chips'
 import { Post as PostType } from '../lib/types'
+import { SiteMeta } from '../site.config'
+import MyHelmet from '../components/common/MyHelmet'
 
 const Title = styled.h1`
   font-size: 2.4rem;
@@ -83,6 +85,8 @@ const Content = styled.div`
   pre {
     padding: 15px;
     border-radius: 5px;
+    line-height: 25px;
+    font-size: 1rem;
   }
   blockquote {
     border-left: 15px solid #81dfed;
@@ -116,18 +120,26 @@ type PostProps = {
   post: PostType
 }
 const Post = ({ post }: PostProps) => {
+  const { clientID, clientSecret, repo, owner, admin } = SiteMeta.gitalk
   const { title, date, content, tags, category, image, toc } = post
 
   return (
     <>
-      <Layout helmetInfo={{ title: title, content: content.substr(0, 50), image: image }}>
+      <Layout>
+        <MyHelmet title={title} content={content.substr(0, 50)} image={image} />
         <Title>{title}</Title>
         <DateView date={date} />
         <hr />
         <Chips category={category} tags={tags} />
         <Toc dangerouslySetInnerHTML={{ __html: toc!! }} />
         <Content dangerouslySetInnerHTML={{ __html: content }} />
-        <Comments />
+        <Comments
+          clientID={clientID}
+          clientSecret={clientSecret}
+          repo={repo}
+          owner={owner}
+          admin={admin}
+        />
       </Layout>
     </>
   )

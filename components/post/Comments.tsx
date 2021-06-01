@@ -1,10 +1,9 @@
 import React from 'react'
-import loadable from '@loadable/component'
-const GitalkComponent = loadable(() => import('gitalk/dist/gitalk-component'))
 import 'gitalk/dist/gitalk.css'
-import { SiteMeta } from '../../site.config'
+import loadable from '@loadable/component'
 import { createGlobalStyle } from 'styled-components'
 import { DefaultTheme } from '../../theme/Theme'
+const GitalkComponent = loadable(() => import('gitalk/dist/gitalk-component'))
 
 const Style = createGlobalStyle`
   .gt-container {
@@ -30,9 +29,14 @@ const Style = createGlobalStyle`
     }
   }
 `
-
-const Comments = () => {
-  const { clientID, clientSecret, repo, owner, admin } = SiteMeta.gitalk
+type CommentsProps = {
+  clientID: string
+  clientSecret: string
+  repo: string
+  owner: string
+  admin: string[]
+}
+const Comments = ({ clientID, clientSecret, repo, owner, admin }: CommentsProps) => {
   return (
     <>
       <Style />

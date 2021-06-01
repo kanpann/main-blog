@@ -1,6 +1,6 @@
 import fs from 'fs'
-import { Post } from './types'
-import { SiteMeta } from '../site.config'
+import { Post } from '../types'
+import { SiteMeta } from '../../site.config'
 
 const { title, url, info } = SiteMeta
 

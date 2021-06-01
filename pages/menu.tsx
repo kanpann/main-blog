@@ -6,6 +6,7 @@ import PostList from '../components/post/PostList'
 import Layout from '../components/common/Layout'
 import { useRouter } from 'next/dist/client/router'
 import { Post } from '../lib/types'
+import MyHelmet from '../components/common/MyHelmet'
 
 const PostHeader = styled.div`
   background-size: cover;
@@ -55,16 +56,14 @@ const Menu = ({ posts }: MenuProps) => {
 
   let subCategorys = topMenu ? [] : Category[menu].sub
 
+  console.log(categoryInfo)
   return (
-    <Layout
-      helmetInfo={{
-        title: `'${menu}' 메뉴`,
-      }}
-    >
-      <PostHeader image={categoryInfo.image}>
+    <Layout>
+      <MyHelmet title={`'${menu}' 메뉴`} content={`${menu} 메뉴에 대한 글들입니다.`} />
+      <PostHeader image={categoryInfo && categoryInfo.image}>
         <PostHeaderFrame>
           <PostTitle>{menu}</PostTitle>
-          <DateFrame>{categoryInfo.descript}</DateFrame>
+          <DateFrame>{categoryInfo && categoryInfo.descript}</DateFrame>
         </PostHeaderFrame>
       </PostHeader>
       <PostList

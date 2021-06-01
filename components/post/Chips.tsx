@@ -2,13 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
 import { DefaultTheme } from '../../theme/Theme'
-import { Avatar, Chip, withTheme } from '@material-ui/core'
-
-const MyChip = styled(withTheme(Chip))((props: DefaultTheme) => ({
-  '&::after': {
-    content: '|',
-  },
-}))
+import { Avatar, Chip } from '@material-ui/core'
 
 const TagFrame = styled.div`
   margin-bottom: 20px;
@@ -21,7 +15,7 @@ type ChipsProps = {
 const Chips = ({ category, tags }: ChipsProps) => {
   return (
     <TagFrame>
-      <MyChip
+      <Chip
         avatar={<Avatar>C</Avatar>}
         key={category}
         style={{ marginRight: '5px', marginBottom: '10px' }}
@@ -31,7 +25,7 @@ const Chips = ({ category, tags }: ChipsProps) => {
       />
       {tags.map((tag, index) => (
         <Link key={index} href={'/tag?tag=' + tag}>
-          <MyChip
+          <Chip
             avatar={<Avatar>T</Avatar>}
             key={tag}
             style={{ marginRight: '5px', marginBottom: '10px' }}

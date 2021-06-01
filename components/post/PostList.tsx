@@ -1,25 +1,16 @@
 import React from 'react'
-import { createStyles, Grid, makeStyles, Theme } from '@material-ui/core'
-import { Post as PostType } from '../../lib/types'
+import { Grid } from '@material-ui/core'
 import { Post } from './Post'
-
-const useStyles = makeStyles(() =>
-  createStyles({
-    link: {
-      padding: '10px',
-    },
-  }),
-)
+import { Post as PostType } from '../../lib/types'
 
 type PostListProps = {
   posts: PostType[]
 }
 const PostList = ({ posts }: PostListProps) => {
-  const classes = useStyles()
   return (
     <Grid container item direction="row" justify="center" alignItems="flex-start">
       {posts.map(({ id, date, title, image, excerpt, tags, category }) => (
-        <Grid xs={12} sm={12} md={6} lg={6} xl={6} item key={id} className={classes.link}>
+        <Grid xs={12} sm={12} md={6} item key={id} style={{ padding: '10px' }}>
           <Post
             id={id}
             title={title}

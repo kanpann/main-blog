@@ -1,5 +1,5 @@
-import { LinearProgress, withStyles, withTheme } from '@material-ui/core'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { LinearProgress, withStyles } from '@material-ui/core'
+import { useCallback, useEffect, useState } from 'react'
 
 const MyLinearProgress = withStyles((theme) => ({
   root: {
