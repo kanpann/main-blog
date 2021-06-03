@@ -21,7 +21,7 @@ const Title = styled.h1`
 `
 const Toc = styled.div`
   .toc {
-    background: rgb(206 230 255 / 40%);
+    background: rgb(206 230 255 / 80%);
     border-radius: 5px;
     padding: 5px 20px;
     margin-bottom: 20px;
