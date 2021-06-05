@@ -7,21 +7,25 @@ type PostListProps = {
   posts: PostType[]
 }
 const PostList = ({ posts }: PostListProps) => {
+  const postsCnt = posts.length
   return (
     <Grid container item direction="row" justify="center" alignItems="flex-start">
-      {posts.map(({ id, date, title, image, excerpt, tags, category }) => (
-        <Grid xs={12} sm={12} md={6} item key={id} style={{ padding: '10px' }}>
-          <Post
-            id={id}
-            title={title}
-            date={date}
-            image={image}
-            excerpt={excerpt!!}
-            tags={tags}
-            category={category}
-          />
-        </Grid>
-      ))}
+      {posts.map(({ id, date, title, image, excerpt, tags, category }, index) => {
+        const gridNum = postsCnt % 2 == 1 && 0 == index ? 12 : 6
+        return (
+          <Grid xs={12} sm={12} md={gridNum} item key={id} style={{ padding: '10px' }}>
+            <Post
+              id={id}
+              title={title}
+              date={date}
+              image={image}
+              excerpt={excerpt!!}
+              tags={tags}
+              category={category}
+            />
+          </Grid>
+        )
+      })}
     </Grid>
   )
 }

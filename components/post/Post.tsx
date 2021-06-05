@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { Typography, CardContent, Card, withTheme, CardMedia } from '@material-ui/core'
 import styled from 'styled-components'
+import { styled as muiStyled } from '@material-ui/core/styles'
 import { DefaultTheme } from '../../theme/Theme'
 import DateView from './DateView'
 import Chips from './Chips'
@@ -49,9 +50,10 @@ const Caption = styled.div`
     }
   }
 `
-const MyCard = styled(withTheme(Card))((props: DefaultTheme) => ({
+const MyCard = muiStyled(withTheme(Card))((props: DefaultTheme) => ({
   backgroundColor: props.theme.app.card,
   display: 'inline-block',
+  width: '100%',
   position: 'relative',
   '&:hover': {
     boxShadow: '1px 1px 5px 1px',
