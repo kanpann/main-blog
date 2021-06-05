@@ -2,16 +2,15 @@ import { Post } from "./types";
 
 export default class PagingUtil {
     VIEW_POST = 6   
-    _page
     result 
-    _origin
-    startNum
-    endNum
+    isPrev
+    isNext
     constructor(page: number, posts: Post[]) {
-        this._page = page
-        this._origin = posts
-        this.startNum = (page - 1) * this.VIEW_POST + 1
-        this.endNum = this.startNum + this.VIEW_POST - 1
-        this.result = posts.slice(this.startNum - 1, this.endNum)
+        page = page == 0 ? 1: page
+        const startNum = (page - 1) * this.VIEW_POST + 1
+        const endNum = startNum + this.VIEW_POST - 1
+        this.isPrev = page > 1
+        this.isNext = Math.ceil(posts.length/this.VIEW_POST) > page
+        this.result = posts.slice(startNum - 1, endNum)
     }
 }

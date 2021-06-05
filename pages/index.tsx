@@ -6,14 +6,23 @@ import Layout from '../components/common/Layout'
 import generateRss from '../lib/meta/feed'
 import generateSitemap from '../lib/meta/sitemap'
 import generateRobots from '../lib/meta/robots'
+import PagingUtil from '../lib/paging-util'
+import { useRouter } from 'next/dist/client/router'
+import Pagination from '../components/common/Pagination'
 
 type HomeProps = {
   posts: Post[]
 }
 const Home = ({ posts }: HomeProps) => {
+  const router = useRouter()
+  const page = Number(router.query.page as string) || 1
+
+  const util = new PagingUtil(page, posts)
+  const { isPrev, isNext, result } = util
   return (
     <Layout>
-      <PostList posts={posts} />
+      <PostList posts={result} />
+      <Pagination isPrev={isPrev} isNext={isNext} page={page} />
     </Layout>
   )
 }

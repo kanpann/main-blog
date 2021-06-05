@@ -1,6 +1,6 @@
 import { getSortedPostsData } from '../lib/posts'
 import { Category, CategoryInfo } from '../site.config'
-import styled, { PostHeaderTheme } from 'styled-components'
+import styled, { DefaultTheme, PostHeaderTheme } from 'styled-components'
 import React, { memo } from 'react'
 import PostList from '../components/post/PostList'
 import Layout from '../components/common/Layout'
@@ -8,8 +8,8 @@ import { useRouter } from 'next/dist/client/router'
 import { Post } from '../lib/types'
 import MyHelmet from '../components/common/MyHelmet'
 import Link from 'next/link'
-import paging from '../lib/paging-util'
 import PagingUtil from '../lib/paging-util'
+import Pagination from '../components/common/Pagination'
 
 const PostHeader = styled.div`
   background-size: cover;
@@ -42,27 +42,6 @@ const DateFrame = styled.div`
   color: #ffffffc2;
   padding: 0px 30px;
 `
-const Pagination = styled.div`
-  .left {
-    float: left;
-    border-bottom: 3px solid black;
-    border-left: 4px solid #cecece;
-    border-radius: 5px;
-    padding: 5px;
-  }
-  .right {
-    float: right;
-    border-bottom: 3px solid black;
-    border-right: 4px solid #cecece;
-    border-radius: 3px;
-    padding: 5px;
-  }
-  a {
-    color: black;
-  }
-  font-size: 2rem;
-  margin: 20px 0px;
-`
 
 type MenuProps = {
   posts: Post[]
@@ -84,10 +63,7 @@ const Menu = ({ posts }: MenuProps) => {
     page,
     posts.filter((post) => subCategorys.indexOf(post.category) != -1 || post.category == menu),
   )
-  posts = util.result
-  let nowUrl = `${window.location.pathname}${window.location.search}`
-  nowUrl = nowUrl.substr(0, nowUrl.lastIndexOf('&') != -1 ? nowUrl.lastIndexOf('&') : nowUrl.length)
-
+  const { isPrev, isNext, result } = util
   return (
     <Layout>
       <MyHelmet title={`'${menu}' 메뉴`} content={`${menu} 메뉴에 대한 글들입니다.`} />
@@ -97,15 +73,8 @@ const Menu = ({ posts }: MenuProps) => {
           <DateFrame>{categoryInfo && categoryInfo.descript}</DateFrame>
         </PostHeaderFrame>
       </PostHeader>
-      <PostList posts={posts} />
-      <Pagination>
-        <Link href={`${nowUrl}&page=${page - 1}`}>
-          <a className="left">Previous</a>
-        </Link>
-        <Link href={`${nowUrl}&page=${page + 1}`}>
-          <a className="right">Next</a>
-        </Link>
-      </Pagination>
+      <PostList posts={result} />
+      <Pagination isPrev={isPrev} isNext={isNext} menu={menu} topMenu={topMenu} page={page} />
     </Layout>
   )
 }
