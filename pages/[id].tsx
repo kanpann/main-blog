@@ -12,7 +12,7 @@ import { SiteMeta } from '../site.config'
 import MyHelmet from '../components/common/MyHelmet'
 
 const Title = styled.h1`
-  font-size: 2.4rem;
+  font-size: 4vh;
   font-family: nanumSquare;
   line-height: 50px;
   margin: 0px;
@@ -47,9 +47,10 @@ const Toc = styled.div`
 `
 const Content = styled.div`
   color: ${(props: DefaultTheme) => props.theme.app.font};
-  line-height: 2.2;
-  font-size: 1.1rem;
+  line-height: 2.5;
+  font-size: 1.8vh;
   word-break: break-all;
+  word-spacing: 3px;
   a {
     text-decoration: none;
     color: #3535f7;
@@ -61,6 +62,13 @@ const Content = styled.div`
     padding-bottom: 10px;
     padding-top: 10px;
     padding-left: 10px;
+    font-size: 3.5vh;
+  }
+  h2 {
+    font-size: 3vh;
+  }
+  h3 {
+    font-size: 2.5vh;
   }
   p {
     color: ${(props: DefaultTheme) => props.theme.app.font};
