@@ -55,11 +55,9 @@ const MyCard = muiStyled(withTheme(Card))((props: DefaultTheme) => ({
   display: 'inline-block',
   width: '100%',
   position: 'relative',
-  '&:hover': {
+  '& div:hover': {
     boxShadow: '1px 1px 5px 1px',
-    div: {
-      opacity: 1,
-    },
+    opacity: 1,
   },
 }))
 const MyTitle = styled(withTheme(Typography))((props: DefaultTheme) => ({
