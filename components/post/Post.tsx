@@ -64,6 +64,7 @@ const MyCard = muiStyled(withTheme(Card))((props: DefaultTheme) => ({
 }))
 const MyTitle = styled(withTheme(Typography))((props: DefaultTheme) => ({
   color: props.theme.app.title,
+  fontSize: '3.5vh',
   fontFamily: 'nanumSquare',
 }))
 
