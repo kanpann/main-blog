@@ -47,8 +47,8 @@ const Toc = styled.div`
 `
 const Content = styled.div`
   color: ${(props: DefaultTheme) => props.theme.app.font};
-  line-height: 2.5;
-  font-size: 1.8vh;
+  line-height: 2.3;
+  font-size: 1.1rem;
   word-break: break-all;
   word-spacing: 3px;
   a {
@@ -65,10 +65,10 @@ const Content = styled.div`
     font-size: 3.5vh;
   }
   h2 {
-    font-size: 3vh;
+    font-size: 3.2vh;
   }
   h3 {
-    font-size: 2.5vh;
+    font-size: 3vh;
   }
   p {
     color: ${(props: DefaultTheme) => props.theme.app.font};
