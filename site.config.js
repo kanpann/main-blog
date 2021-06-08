@@ -37,11 +37,7 @@ module.exports = {
       sub: ['Spring', 'Kotlin'],
     },
     JavaScript: { isSub: true, sub: ['React', 'Vue'] },
-    Python: {
-      isSub: false,
-      sub: [],
-    },
-    Linux: {
+    Book: {
       isSub: false,
       sub: [],
     },
@@ -50,6 +46,14 @@ module.exports = {
       sub: ['자료구조'],
     },
     '문제 해결': {
+      isSub: false,
+      sub: [],
+    },
+    Python: {
+      isSub: false,
+      sub: [],
+    },
+    Linux: {
       isSub: false,
       sub: [],
     },
@@ -102,6 +106,10 @@ module.exports = {
     Python: new Category(
       'https://user-images.githubusercontent.com/45007556/119506258-b4c69280-bda8-11eb-8c09-7376ffa2e64c.png',
       '파이썬에 대한 글들을 모아놓은 카테고리입니다.',
+    ),
+    Book: new Category(
+      'https://user-images.githubusercontent.com/45007556/121114253-5d1b3300-c84e-11eb-9f93-586be4017bb8.png',
+      '책 정보나 리뷰에 대한 글들을 모아놓은 카테고리입니다.',
     ),
   },
 }
