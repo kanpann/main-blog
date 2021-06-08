@@ -3,7 +3,7 @@ date: '2021-06-08'
 title: '[서평단 리뷰] Node.js 교과서'
 category: Book
 image: https://user-images.githubusercontent.com/45007556/121104992-23dac700-c83e-11eb-97e9-6037e694ed3e.png
-tags: [Linux, Ubuntu, Ci, Jenkins]
+tags: [Book, Review]
 ---
 
 <div align="center">
