@@ -1,34 +1,32 @@
 import React, { memo } from 'react'
-import PostList from '../components/post/PostList'
 import { getSortedPostsData } from '../lib/posts'
-import { Post } from '../lib/types'
-import Layout from '../components/common/Layout'
-import generateRss from '../lib/meta/feed'
-import generateSitemap from '../lib/meta/sitemap'
-import generateRobots from '../lib/meta/robots'
+import { Post } from '../types/post'
+import { Layout, MyPagination } from '../components/common'
+import { PostList } from '../components/post'
+import { generateRss, generateRobots, generateSitemap } from '../lib/meta'
 import PagingUtil from '../lib/paging-util'
 import { useRouter } from 'next/dist/client/router'
-import Pagination from '../components/common/Pagination'
 
 type HomeProps = {
   posts: Post[]
 }
 const Home = ({ posts }: HomeProps) => {
-  const router = useRouter()
-  const page = Number(router.query.page as string) || 1
+  const { query } = useRouter()
+  const page: number = Number(query.page as string) || 1
 
   const util = new PagingUtil(page, posts)
-  const { isPrev, isNext, result } = util
+  const { result, totalPage } = util.getObj()
   return (
     <Layout>
       <PostList posts={result} />
-      <Pagination isPrev={isPrev} isNext={isNext} page={page} />
+      <hr />
+      <MyPagination page={page} totalPage={totalPage} />
     </Layout>
   )
 }
 
 export const getStaticProps = async () => {
-  const posts = await getSortedPostsData()
+  const posts: Post[] = await getSortedPostsData()
   generateRss(posts)
   generateSitemap(posts)
   generateRobots()

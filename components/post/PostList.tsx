@@ -1,7 +1,7 @@
 import React from 'react'
 import { Grid } from '@material-ui/core'
 import { Post } from './Post'
-import { Post as PostType } from '../../lib/types'
+import { Post as PostType } from '../../types/post'
 
 type PostListProps = {
   posts: PostType[]
@@ -20,7 +20,6 @@ const PostList = ({ posts }: PostListProps) => {
               date={date}
               image={image}
               excerpt={excerpt!!}
-              tags={tags}
               category={category}
             />
           </Grid>

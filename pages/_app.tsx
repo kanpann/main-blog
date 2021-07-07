@@ -1,14 +1,10 @@
 import '../theme/fonts.css'
 import NextApp from 'next/app'
 import React from 'react'
-import TopScrollBtn from '../components/common/TopScrollBtn'
 import GlobalTheme from '../theme/Global'
 import { LightTheme, DarkTheme } from '../theme/Theme'
-import ThemeProvider from '../components/provider/ThemeProvider'
-import styled from 'styled-components'
-import Header from '../components/header/Header'
-import { SiteMeta } from '../site.config'
-import { ThemeCtxProvider } from '../components/provider/ThemeCtxProvider'
+import { ThemeCtxProvider, ThemeProvider } from '../components/provider'
+import { NextComponentType, NextPageContext } from 'next'
 
 const themes = {
   light: LightTheme,
@@ -28,11 +24,14 @@ export default class App extends NextApp {
     savedTheme && this.setState({ theme: savedTheme })
   }
   render() {
-    const { Component, pageProps } = this.props
-    const { theme } = this.state
+    const {
+      Component,
+      pageProps,
+    }: { Component: NextComponentType<NextPageContext, any, {}>; pageProps: any } = this.props
+    const { theme }: { theme: string } = this.state
 
     const handleTransTheme = () => {
-      const changeTheme = theme === 'light' ? 'dark' : 'light'
+      const changeTheme: string = theme === 'light' ? 'dark' : 'light'
       localStorage.setItem('theme', changeTheme)
       this.setState({ theme: changeTheme })
     }

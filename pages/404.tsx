@@ -1,10 +1,9 @@
-import Layout from '../components/common/Layout'
+import React from 'react'
 import { styled as muiStyled } from '@material-ui/core/styles'
 import { Button, Typography, withTheme } from '@material-ui/core'
+import { MyHelmet, Layout } from '../components/common'
 import { DefaultTheme } from 'styled-components'
-import React from 'react'
 import Link from 'next/link'
-import MyHelmet from '../components/common/MyHelmet'
 
 const NotFoundMsg = muiStyled(withTheme(Typography))((props: DefaultTheme) => ({
   color: props.theme.app.title,

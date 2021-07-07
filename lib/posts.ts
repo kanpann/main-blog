@@ -1,7 +1,10 @@
 import { GrayMatterFile } from 'gray-matter'
 import { getByteLength, removeHtml, substrToByte } from './common-util'
 import * as util from './posts-util'
-import { Post } from './types'
+import { Post } from '../types/post'
+import { Category } from '../site.config'
+import { CategoryType } from '../types/category'
+import { CategoryPath, IdPath, TagPath } from '../types/path'
 
 const getPostByFileName = async (fileName: string): Promise<Post> => {
   const id: string = fileName
@@ -13,7 +16,7 @@ const getPostByFileName = async (fileName: string): Promise<Post> => {
 
   const content: string = postData.content
   let excerpt: string = substrToByte(removeHtml(await util.getContents(content)), 300)
-  excerpt += (getByteLength(excerpt) > 300 ? '...' : '')
+  excerpt += getByteLength(excerpt) > 300 ? '...' : ''
 
   return {
     id,
@@ -32,7 +35,7 @@ export const getSortedPostsData = async (): Promise<Post[]> => {
   const posts: Array<Post> = new Array()
 
   for (let i = 0; i < fileNames.length; i++) {
-    const fileName = fileNames[i]
+    const fileName: string = fileNames[i]
     const post: Post = await getPostByFileName(fileName)
     posts.push(post)
   }
@@ -45,7 +48,7 @@ export const getSortedPostsData = async (): Promise<Post[]> => {
   })
 }
 
-export const getAllPostIds = () => {
+export const getAllPostIds = (): IdPath[] => {
   const fileNames: string[] = util.getFileNames()
   return fileNames.map((fileName: string) => {
     return {
@@ -55,17 +58,58 @@ export const getAllPostIds = () => {
     }
   })
 }
+export const getAllTags = async (): Promise<TagPath[]> => {
+  const postData: Post[] = await getSortedPostsData()
 
-export const getPostData = async (id: string): Promise<Post> => {
+  const set: Set<string> = new Set()
+  postData.map((post: Post) => {
+    if (post.tags) {
+      post.tags.map((tag: string) => {
+        set.add(tag)
+      })
+    }
+  })
+  const arr: string[] = Array.from(set)
+
+  return arr.map((tag: string) => {
+    return {
+      params: {
+        tag: tag,
+      },
+    }
+  })
+}
+
+export const getAllCategorys = async (): Promise<CategoryPath[]> => {
+  const postData: Post[] = await getSortedPostsData()
+
+  const set: Set<string> = new Set()
+  postData.map((post: Post) => {
+    if (post.category) {
+      set.add(post.category)
+    }
+  })
+  const arr: string[] = Array.from(set)
+
+  return arr.map((category: string) => {
+    return {
+      params: {
+        category: category,
+      },
+    }
+  })
+}
+
+export const findPostDataById = async (id: string): Promise<Post> => {
   const fileName: string = `${id}.md`
 
-  const { title, date, image, tags, category } = util.getPostData(fileName).data
+  const { title, date, image, tags, category, isToc = true } = util.getPostData(fileName).data
   const content: string = util.getPostData(fileName).content
   const { contents, toc } = await util.getContentsAndToc(content)
 
   return {
     id,
-    toc: toc,
+    toc: isToc ? toc : '',
     content: contents,
     category: category,
     tags: tags !== undefined ? tags : [],
@@ -73,6 +117,35 @@ export const getPostData = async (id: string): Promise<Post> => {
     date: date,
     image: image,
   }
+}
+export const findPostDataByTag = async (tag: string): Promise<Post[]> => {
+  const postData: Post[] = await getSortedPostsData()
+
+  const arr: Post[] = new Array()
+  postData.map((post: Post) => {
+    if (post.tags.indexOf(tag) != -1) {
+      arr.push(post)
+    }
+  })
+  return arr
+}
+export const findPostDataByCategory = async (category: string): Promise<Post[]> => {
+  const postData: Post[] = await getSortedPostsData()
+  const categoryInfo: CategoryType = Category
+
+  const arr: Post[] = []
+  postData.map((post: Post) => {
+    if (post.category === category) {
+      arr.push(post)
+    } else if (
+      categoryInfo[category] &&
+      categoryInfo[category].sub &&
+      categoryInfo[category].sub.indexOf(post.category) !== -1
+    ) {
+      arr.push(post)
+    }
+  })
+  return arr
 }
 
 export const getAbout = async (): Promise<string> => {

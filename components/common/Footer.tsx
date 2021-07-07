@@ -16,7 +16,7 @@ type FooterProps = {
   github: string
   author: string
 }
-const Footer = ({ github, author }) => {
+const Footer = ({ github, author }: FooterProps) => {
   return (
     <Frame>
       ©<a href={github}>{author}</a>, Built with{' '}

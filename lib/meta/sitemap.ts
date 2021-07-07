@@ -1,4 +1,4 @@
-import { Post } from '../types'
+import { Post } from '../../types/post'
 import fs from 'fs'
 import { SiteMeta } from '../../site.config'
 
@@ -25,7 +25,7 @@ const generateSitemap = (allPostsData: Post[]): void => {
     return
   }
 
-  const sitemap = generateSitemapChannel(allPostsData)
+  const sitemap: string = generateSitemapChannel(allPostsData)
   fs.writeFileSync('public/sitemap.xml', sitemap)
 }
 

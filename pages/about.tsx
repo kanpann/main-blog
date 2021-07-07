@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from '../components/common/Layout'
+import { Layout } from '../components/common'
 import { getAbout } from '../lib/posts'
 import styled, { DefaultTheme } from 'styled-components'
 

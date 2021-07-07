@@ -1,28 +1,15 @@
-import { DefaultTheme } from '../../theme/Theme'
 import styled from 'styled-components'
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
-import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp'
+import PublishIcon from '@material-ui/icons/Publish'
 
-const ScrollBtn = styled.div`
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  color: ${(props: DefaultTheme) => props.theme.app.title};
-  cursor: pointer;
-  opacity: 0.7;
-`
+const ScrollBtn = styled.div``
 
 const TopScrollBtn = () => {
   const handleUpClick = () => {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
   }
-  const handleDownClick = () => {
-    window.scrollTo({ top: 1000000, left: 0, behavior: 'smooth' })
-  }
   return (
     <ScrollBtn>
-      <ArrowDropUpIcon onClick={handleUpClick} fontSize="large" />
-      <ArrowDropDownIcon onClick={handleDownClick} fontSize="large" />
+      <PublishIcon viewBox="0 -6 28 28" onClick={handleUpClick} />
     </ScrollBtn>
   )
 }

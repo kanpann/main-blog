@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components'
 import { DefaultTheme } from './Theme'
 
 const lightTheme = createGlobalStyle`
+  color: ${(props: DefaultTheme) => props.theme.app.font};
   body {
     margin: 0px;
     font-family: 'nanumBarunGothic';
@@ -14,12 +15,15 @@ const lightTheme = createGlobalStyle`
   }
   a:link {
     text-decoration: none;
+    color: ${(props: DefaultTheme) => props.theme.app.font};
   }
   a:visited {
     text-decoration: none;
+    color: ${(props: DefaultTheme) => props.theme.app.font};
   }
   a:hover {
     text-decoration: none;
+    color: ${(props: DefaultTheme) => props.theme.app.font};
   }
 `
 export default lightTheme

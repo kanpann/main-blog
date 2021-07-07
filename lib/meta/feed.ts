@@ -1,8 +1,9 @@
 import fs from 'fs'
-import { Post } from '../types'
+import { Post } from '../../types/post'
 import { SiteMeta } from '../../site.config'
+import { SiteMetaType } from '../../types/config'
 
-const { title, url, info } = SiteMeta
+const { title, url, info }: SiteMetaType = SiteMeta
 
 const generateRssItem = (post: Post): string => `
   <item>
@@ -33,7 +34,7 @@ const generateRss = (allPostsData: Post[]): void => {
     return
   }
 
-  const rss = generateRssChannel(allPostsData)
+  const rss: string = generateRssChannel(allPostsData)
   fs.writeFileSync('public/rss.xml', rss)
 }
 

@@ -21,11 +21,11 @@ export const LightTheme = {
   ...lightTheme,
   app: {
     background: '#e4ffcb',
-    font: '#676767',
+    font: '#484848',
     a: 'black',
     title: 'black',
     box: 'white',
-    card: 'white'
+    card: 'white',
   },
 }
 export const DarkTheme = {
@@ -36,10 +36,10 @@ export const DarkTheme = {
     a: '',
     title: 'white',
     box: '#0a0f1b',
-    card: '#011931'
+    card: '#011931',
   },
 }
 
 export type DefaultTheme = {
-  theme: typeof DarkTheme;
+  theme: typeof DarkTheme
 }

@@ -2,9 +2,10 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import ScrollProgressBar from './ScrollProgressBar'
 import { SiteMeta } from '../../site.config'
+import { SiteMetaType } from '../../types/config'
 
 const Header = () => {
-  const { title, descript, info } = SiteMeta
+  const { title, descript, info }: SiteMetaType = SiteMeta
   return (
     <>
       <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" />

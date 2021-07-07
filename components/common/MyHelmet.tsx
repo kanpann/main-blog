@@ -8,7 +8,7 @@ type MyHelmetProps = {
   image?: string
 }
 const MyHelmet = ({ title, content, image }: MyHelmetProps) => {
-  const { author } = SiteMeta.info
+  const author: string = SiteMeta.info.author
   return (
     <Helmet
       meta={[

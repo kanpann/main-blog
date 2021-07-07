@@ -2,24 +2,24 @@ import React from 'react'
 import { Avatar, Grid, IconButton, withTheme } from '@material-ui/core'
 import { SiteMeta } from '../../site.config'
 import Categories from './Categories'
-import ArrowBackIcon from '@material-ui/icons/ArrowBack'
 import { styled as muiStyled } from '@material-ui/core/styles'
 import styled, { SideBarTheme } from 'styled-components'
 import { DefaultTheme } from '../../theme/Theme'
 import Social from './Social'
-import Logo from '../common/Logo'
 import SearchForm from './SearchForm'
+import CloseIcon from '@material-ui/icons/Close'
+import { SiteInfoType } from '../../types/config'
 
 const MainFrame = styled.div`
   background-color: ${(props: SideBarTheme) => props.theme.app.box};
   ${(props: SideBarTheme) => (props.isBorder ? 'border: 1px solid gray' : '')};
+  ${(props: SideBarTheme) =>
+    props.whiteSpace == 'normal' ? 'padding-top: 50px' : 'padding-top: 100px'};
 `
 const BackButton = muiStyled(withTheme(IconButton))({
   position: 'fixed',
-  bottom: '0',
-  padding: '20px',
-  width: '20px',
-  height: '20px',
+  top: 10,
+  left: 10,
 })
 const MyAvatar = muiStyled(withTheme(Avatar))({
   width: '150px',
@@ -44,15 +44,14 @@ const Contents = styled.p`
 `
 
 type SideMenuProps = {
-  isLogo?: boolean
   isBorder?: boolean
+  whiteSpace?: 'normal' | 'large'
   handleClose?: () => void
 }
-const SideMenuBar = ({ isLogo, isBorder, handleClose }: SideMenuProps) => {
-  const { github, email, author, descript, image } = SiteMeta.info
+const SideMenuBar = ({ isBorder, whiteSpace = 'normal', handleClose }: SideMenuProps) => {
+  const { github, email, author, descript, image }: SiteInfoType = SiteMeta.info
   return (
-    <MainFrame isBorder={isBorder}>
-      {isLogo && <Logo />}
+    <MainFrame isBorder={isBorder} whiteSpace={whiteSpace}>
       <Grid
         style={{ padding: '10px' }}
         container
@@ -75,7 +74,7 @@ const SideMenuBar = ({ isLogo, isBorder, handleClose }: SideMenuProps) => {
       </Grid>
       {handleClose && (
         <BackButton onClick={handleClose}>
-          <ArrowBackIcon />
+          <CloseIcon color="inherit" viewBox="5 5 15 15" />
         </BackButton>
       )}
     </MainFrame>

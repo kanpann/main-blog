@@ -1,5 +1,6 @@
 import { parseISO, format } from 'date-fns'
 import styled from 'styled-components'
+import { DefaultTheme } from '../../theme/Theme'
 
 function printElapsedDate(date: string): string {
   const postDate = new Date(date)
@@ -12,19 +13,19 @@ function printElapsedDate(date: string): string {
   } else if (dateDiff < 31) {
     return dateDiff + '일 전'
   } else {
-    const ElapsedMonth: any = Math.floor(dateDiff / 31)
+    const elapsedMonth: number = Math.floor(dateDiff / 31)
 
-    if (Math.floor(ElapsedMonth / 12) != 0) {
-      return Math.floor(ElapsedMonth / 12) + '년 전'
+    if (Math.floor(elapsedMonth / 12) != 0) {
+      return Math.floor(elapsedMonth / 12) + '년 전'
     }
-    return ElapsedMonth + '달 전'
+    return elapsedMonth + '달 전'
   }
 }
 
-const Time = styled.div`
+const Time = styled.span`
   font-size: 1rem;
   text-align: left;
-  color: #7d7d7d;
+  color: ${(props: DefaultTheme) => props.theme.app.font};
   line-height: 0px;
   margin-top: 10px;
   margin-bottom: 20px;
@@ -35,11 +36,9 @@ type DateProps = {
 }
 const DateView = ({ date }: DateProps) => {
   return (
-    <>
-      <Time>
-        {format(parseISO(date), 'yyyy년 MM월 dd일')} ({printElapsedDate(date)})
-      </Time>
-    </>
+    <Time>
+      {format(parseISO(date), 'yyyy년 MM월 dd일')} ({printElapsedDate(date)})
+    </Time>
   )
 }
 export default DateView
