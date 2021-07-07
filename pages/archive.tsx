@@ -2,7 +2,6 @@ import React, { memo } from 'react'
 import { getSortedPostsData } from '../lib/posts'
 import { Post } from '../types/post'
 import { Layout } from '../components/common'
-import { generateRss, generateRobots, generateSitemap } from '../lib/meta'
 import {
   Timeline,
   TimelineItem,
