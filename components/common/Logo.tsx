@@ -22,7 +22,7 @@ const CustomLogo = styled.div`
 const Logo = () => {
   return (
     <CustomLogo>
-      <Link href="/">Gunlog</Link>
+      <Link href="/"><a title="김건 블로그이올시다">Gunlog</a></Link>
     </CustomLogo>
   )
 }

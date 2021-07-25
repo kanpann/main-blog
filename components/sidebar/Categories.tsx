@@ -30,7 +30,7 @@ const Item = styled.li`
   }
   a {
     &:hover {
-      color: #a3bcff;
+      color: ${(props: DefaultTheme) => props.theme.app.a};
       &::before {
         content: '_';
       }

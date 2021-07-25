@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { Typography, withTheme, CardMedia } from '@material-ui/core'
 import styled from 'styled-components'
+import { styled as muiStyled } from '@material-ui/core/styles'
 import { DefaultTheme } from '../../theme/Theme'
 import DateView from './DateView'
 
@@ -13,7 +14,6 @@ const NoImage = styled.div`
   font-size: 3rem;
   text-align: center;
   justify-content: center;
-  font-family: 'sunspots';
 
   div {
     position: relative;
@@ -28,6 +28,7 @@ const Meta = styled.div`
   padding: 10px 0px;
   .category {
     font-weight: bold;
+    border-bottom: 2px solid black;
     color: ${(props: DefaultTheme) => props.theme.app.title};
   }
 `
@@ -35,7 +36,7 @@ const Frame = styled.div`
   word-break: break-all;
   &:hover {
     .myTitle {
-      color: #a3bcff;
+      color: ${(props: DefaultTheme) => props.theme.app.a};
     }
     img {
       opacity: 0.6;
@@ -48,11 +49,11 @@ const Frame = styled.div`
   }
 `
 
-const MyTitle = styled(withTheme(Typography))((props: DefaultTheme) => ({
+const MyTitle = muiStyled(withTheme(Typography))((props: DefaultTheme) => ({
   color: props.theme.app.title,
-  fontSize: '3.5vh',
-  fontFamily: 'nanumSquare',
+  fontSize: '2rem',
   cursor: 'pointer',
+  fontWeight: 'bold',
 }))
 const Content = styled.div`
   color: ${(props: DefaultTheme) => props.theme.app.font};

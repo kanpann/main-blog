@@ -22,7 +22,9 @@ export const LightTheme = {
   app: {
     background: '#e4ffcb',
     font: '#484848',
-    a: 'black',
+    a: '#a5ffa0',
+    header: '#2abb19',
+    toc: 'rgb(237 255 240 / 80%)',
     title: 'black',
     box: 'white',
     card: 'white',
@@ -33,7 +35,9 @@ export const DarkTheme = {
   app: {
     background: '#011931',
     font: '#ababab',
-    a: '',
+    a: '#c3626f',
+    header: '#d46262',
+    toc: 'rgb(187 208 255 / 80%)',
     title: 'white',
     box: '#0a0f1b',
     card: '#011931',

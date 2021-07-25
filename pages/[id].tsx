@@ -27,6 +27,8 @@ const Post = ({ post }: PostProps) => {
       <hr />
       <Title>{title}</Title>
       <DateView date={date} />
+      <Toc dangerouslySetInnerHTML={{ __html: toc!! }} />
+      <Content dangerouslySetInnerHTML={{ __html: content }} />
       <Tags>
         <LocalOfferIcon fontSize="inherit" titleAccess="태그" />
         {tags &&
@@ -36,8 +38,7 @@ const Post = ({ post }: PostProps) => {
             </Link>
           ))}
       </Tags>
-      <Toc dangerouslySetInnerHTML={{ __html: toc!! }} />
-      <Content dangerouslySetInnerHTML={{ __html: content }} />
+      <hr />
       <Comments
         clientID={clientID}
         clientSecret={clientSecret}

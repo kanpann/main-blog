@@ -5,7 +5,7 @@ const lightTheme = createGlobalStyle`
   color: ${(props: DefaultTheme) => props.theme.app.font};
   body {
     margin: 0px;
-    font-family: 'nanumBarunGothic';
+    font-family: 'Spoqa Han Sans Neo';
     background-color: ${(props: DefaultTheme) => props.theme.app.background};
     line-height: 30px;
   }

@@ -1,12 +1,8 @@
 @font-face {
+  font-family: 'Spoqa Han Sans Neo';
+  src: url('/fonts/SpoqaHanSansNeo-Medium.ttf');
+}
+@font-face {
   font-family: 'sunspots';
   src: url('/fonts/sunspots.ttf');
-}
-@font-face {
-  font-family: 'nanumSquare';
-  src: url('/fonts/NanumSquare.ttf');
-}
-@font-face {
-  font-family: 'nanumBarunGothic';
-  src: url('/fonts/NanumBarunGothic.ttf');
 }

@@ -16,7 +16,7 @@ const getPostByFileName = async (fileName: string): Promise<Post> => {
 
   const content: string = postData.content
   let excerpt: string = substrToByte(removeHtml(await util.getContents(content)), 300)
-  excerpt += getByteLength(excerpt) > 300 ? '...' : ''
+  excerpt += getByteLength(content) > 300 ? '.....' : ''
 
   return {
     id,

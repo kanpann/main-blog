@@ -2,8 +2,7 @@ import styled from 'styled-components'
 import { DefaultTheme } from '../theme/Theme'
 
 export const Title = styled.h1`
-  font-size: 4.5vh;
-  font-family: nanumSquare;
+  font-size: 2.5rem;
   line-height: 50px;
   margin: 0px;
   word-break: break-all;
@@ -14,7 +13,7 @@ export const Category = styled.div`
   font-weight: bold;
   font-size: 1.3rem;
 `
-export const Tags = styled.span`
+export const Tags = styled.div`
   color: ${(props: DefaultTheme) => props.theme.app.font};
   a {
     margin-right: 8px;
@@ -22,7 +21,7 @@ export const Tags = styled.span`
 `
 export const Toc = styled.div`
   .toc {
-    background: rgb(206 230 255 / 80%);
+    background: ${(props: DefaultTheme) => props.theme.app.toc};
     border-radius: 5px;
     padding: 5px 20px;
     margin-top: 10px;
@@ -30,7 +29,7 @@ export const Toc = styled.div`
     word-break: break-all;
     h3 {
       color: #0b206f;
-      border-bottom: 1px solid;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     }
     ul {
       margin-top: 0px;
@@ -55,22 +54,19 @@ export const Content = styled.div`
   word-spacing: 3px;
   a {
     text-decoration: none;
-    color: #3535f7;
     font-weight: bold;
+    color: ${(props: DefaultTheme) => props.theme.app.header} !important;
   }
   h1 {
-    border-bottom: 3px solid #949494;
-    border-left: 10px solid #dcdcdc;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    padding-left: 10px;
-    font-size: 3.5vh;
+    padding-bottom: 5px;
+    font-size: 2.3rem;
+    color: ${(props: DefaultTheme) => props.theme.app.header} !important;
   }
   h2 {
-    font-size: 3.2vh;
+    font-size: 2.1rem;
   }
   h3 {
-    font-size: 3vh;
+    font-size: 1.9rem;
   }
   p {
     color: ${(props: DefaultTheme) => props.theme.app.font};
@@ -95,14 +91,16 @@ export const Content = styled.div`
   pre {
     padding: 15px;
     border-radius: 5px;
-    line-height: 25px;
+    line-height: 20px;
     font-size: 1rem;
+    font-family: 'Spoqa Han Sans Neo';
   }
   blockquote {
-    border-left: 15px solid #81dfed;
-    padding: 5px 0px 5px 20px;
-    background-color: #ececec;
+    border-left: 10px solid ${(props: DefaultTheme) => props.theme.app.header};
+    padding: 20px;
+    background-color: #edf3ef;
     margin: 0px;
+    border-radius: 5px;
     font-style: oblique;
     p {
       color: #464646;
@@ -113,6 +111,8 @@ export const Content = styled.div`
 
   table {
     box-shadow: 0px 0px 5px 0px;
+    background-color: #f2f9ff;
+    color: black;
     &,
     th,
     td {
