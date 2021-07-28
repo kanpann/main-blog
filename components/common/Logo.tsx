@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
 import { DefaultTheme } from '../../theme/Theme'
+import { SiteMeta } from '../../site.config'
 
 const CustomLogo = styled.div`
   margin: 15px 0px;
@@ -20,9 +21,10 @@ const CustomLogo = styled.div`
 `
 
 const Logo = () => {
+  const { title } = SiteMeta;
   return (
     <CustomLogo>
-      <Link href="/"><a title="김건 블로그이올시다">Gunlog</a></Link>
+      <Link href="/"><a title="김건 블로그이올시다">{title}</a></Link>
     </CustomLogo>
   )
 }
