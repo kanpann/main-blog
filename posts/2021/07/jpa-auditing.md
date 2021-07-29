@@ -5,7 +5,8 @@ category: Java
 image: https://user-images.githubusercontent.com/45007556/103327917-04bf5880-4a9a-11eb-8610-c88a74f619bc.png
 tags: [Java, Jpa]
 ---
-이번엔 JPA를 사용하면서 가장 편하다고 생각하는 Auditing라는 기능의 사용 방법에 대해서 정리해보려고 한다.
+이번엔 JPA를 사용하면서 가장 편하다고 생각하는 Auditing라는 기능의 사용 방법에 대해서 정리해보려고 한다. 
+[예제 프로젝트](https://github.com/gunkims/spring-example/tree/master/jpa-auditing)
 
 # 주요 어노테이션
 자동화할 수 있는 요소는 생성시간, 수정시간, 생성한 사람, 수정한 사람에 대한 정보인데 관련 어노테이션을 먼저 알아보면.
