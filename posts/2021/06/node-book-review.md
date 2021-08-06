@@ -1,6 +1,6 @@
 ---
 date: '2021-06-10'
-title: 'Node.js 교과서 후기'
+title: 'Node.js 교과서 서평단 책 후기'
 category: Book
 image: https://user-images.githubusercontent.com/45007556/121104992-23dac700-c83e-11eb-97e9-6037e694ed3e.png
 tags: [Book, Review]
